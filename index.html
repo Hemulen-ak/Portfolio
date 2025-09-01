@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+    }
+    window.onload = function() {
+      if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+      }
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arun's Portfolio</title>
+  <style>
+    .theme-switch {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      width: auto;
+      height: 26px;
+      vertical-align: middle;
+      margin-left: 1em;
+      gap: 6px;
+    }
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: relative;
+      cursor: pointer;
+      width: 48px;
+      height: 26px;
+      background: #ffb74d;
+      border-radius: 26px;
+      transition: background 0.3s;
+      box-shadow: 0 1px 4px #ffd180;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .slider:before {
+      position: absolute;
+      content: '';
+      height: 22px;
+      width: 22px;
+      left: 2px;
+      bottom: 2px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s;
+      box-shadow: 0 1px 4px #ffd180;
+    }
+    .theme-switch input:checked + .slider {
+      background: #232526;
+    }
+    .theme-switch input:checked + .slider:before {
+      transform: translateX(22px);
+      background: #ffe082;
+    }
+    .theme-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 4px;
+    }
+    .theme-icons .icon {
+      width: 12px;
+      height: 12px;
+      font-size: 0.7em;
+      opacity: 0.35;
+      filter: grayscale(0.5);
+      transition: opacity 0.3s, filter 0.3s;
+      display: inline-block;
+    }
+    .theme-switch input:not(:checked) ~ .theme-icons .icon.sun {
+      opacity: 1;
+      filter: none;
+    }
+    .theme-switch input:checked ~ .theme-icons .icon.moon {
+      opacity: 1;
+      filter: none;
+    }
+    body.dark-theme {
+      background: linear-gradient(135deg, #232526 0%, #414345 100%) !important;
+      color: #f3f3f3;
+    }
+    body.dark-theme header {
+      background: linear-gradient(90deg, #232526 60%, #414345 100%) !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    body.dark-theme header h1 {
+      color: #ffe082;
+      text-shadow: 2px 3px 0 #232526, 0 1px 8px #414345;
+    }
+    body.dark-theme nav a {
+      background: #333;
+      color: #ffe082;
+      box-shadow: 0 2px 8px #232526;
+    }
+    body.dark-theme nav a:hover {
+      background: #ffb74d;
+      color: #232526;
+    }
+    body.dark-theme .hero {
+      background: url('https://cdn.pixabay.com/photo/2017/01/31/13/14/animal-2023924_1280.png') no-repeat right bottom/180px, linear-gradient(120deg, #232526 60%, #414345 100%) !important;
+      color: #ffe082;
+    }
+    body.dark-theme .hero h2 {
+      color: #ffe082;
+      text-shadow: 1px 2px 0 #232526;
+    }
+    body.dark-theme .hero p {
+      background: #333c;
+      color: #ffe082;
+      box-shadow: 0 1px 4px #232526;
+    }
+    body.dark-theme .section {
+      background: #232526;
+      color: #ffe082;
+      box-shadow: 0 2px 16px #232526;
+    }
+    body.dark-theme .skills .skill {
+      background: linear-gradient(90deg, #333 60%, #414345 100%);
+      color: #ffe082;
+      box-shadow: 0 1px 6px #232526;
+    }
+    body.dark-theme .contact a {
+      background: #333;
+      color: #ffe082;
+      box-shadow: 0 2px 12px #232526;
+    }
+    body.dark-theme .contact a:hover {
+      background: #ffb74d;
+      color: #232526;
+    }
+    body.dark-theme footer {
+      background: linear-gradient(90deg, #232526 60%, #414345 100%);
+      color: #ffe082;
+      box-shadow: 0 -2px 12px #232526;
+    }
+    body.dark-theme .bg-anim .star-anim {
+      filter: brightness(0.7) drop-shadow(0 0 6px #ffe082);
+    }
+    body.dark-theme .bg-anim .circle-anim {
+      filter: blur(2px) brightness(0.7);
+    }
+    .bg-anim {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .star-anim {
+      position: absolute;
+      width: 18px; height: 18px;
+      background: transparent;
+      color: #ffe082;
+      opacity: 0.7;
+      filter: drop-shadow(0 0 8px #ffe082);
+      animation: twinkleStar 6s linear infinite;
+      font-size: 18px;
+      z-index: 1;
+    }
+    .star-anim.s1 { left: 12vw; top: 80vh; animation-delay: 0s; }
+    .star-anim.s2 { left: 70vw; top: 90vh; animation-delay: 1.5s; }
+    .star-anim.s3 { left: 30vw; top: 60vh; animation-delay: 3s; }
+    .star-anim.s4 { left: 50vw; top: 95vh; animation-delay: 4.5s; }
+    .star-anim.s5 { left: 80vw; top: 40vh; animation-delay: 2.2s; }
+    .circle-anim {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.13;
+      filter: blur(1.5px);
+      animation: floatCircle 18s linear infinite;
+      z-index: 0;
+    }
+    .circle-anim.c1 { width: 120px; height: 120px; left: 10vw; top: 80vh; background: #ffb74d; animation-delay: 0s; }
+    .circle-anim.c2 { width: 80px; height: 80px; left: 70vw; top: 90vh; background: #ffd180; animation-delay: 3s; }
+    .circle-anim.c3 { width: 60px; height: 60px; left: 30vw; top: 100vh; background: #fffde7; animation-delay: 6s; }
+    .circle-anim.c4 { width: 100px; height: 100px; left: 50vw; top: 95vh; background: #ff6f61; animation-delay: 9s; }
+    .circle-anim.c5 { width: 70px; height: 70px; left: 80vw; top: 110vh; background: #f8b500; animation-delay: 12s; }
+    @keyframes floatCircle {
+      0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.13; }
+      40% { opacity: 0.22; }
+      60% { opacity: 0.22; }
+      100% { transform: translateY(-110vh) scale(1.1) rotate(30deg); opacity: 0.13; }
+    }
+    @keyframes twinkleStar {
+      0%, 100% { opacity: 0.7; filter: drop-shadow(0 0 8px #ffe082); }
+      50% { opacity: 1; filter: drop-shadow(0 0 16px #fffde7); }
+    }
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif;
+  background: linear-gradient(135deg, #fceabb 0%, #f8b500 60%, #ff6f61 100%);
+      color: #333;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(90deg, #f8b500 60%, #fceabb 100%);
+      padding: 1.5rem 0 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.7rem;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 2px 3px 0 #f8b500, 0 1px 8px #fff9c4;
+      font-family: 'Baloo 2', cursive, sans-serif;
+    }
+    nav {
+      margin-top: 0.7rem;
+    }
+    nav a {
+      color: #fff;
+      background: #ff6f61;
+      padding: 0.6rem 1.2rem;
+      border-radius: 22px;
+      margin: 0 0.3rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px #ffd180;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    nav a:hover {
+      background: #ffb74d;
+      color: #fffde7;
+      transform: scale(1.08) rotate(-2deg);
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1rem 1.5rem 1rem;
+      background: url('https://cdn.pixabay.com/photo/2017/01/31/13/14/animal-2023924_1280.png') no-repeat right bottom/180px, linear-gradient(120deg, #fffde7 60%, #ffe082 100%);
+      min-height: 340px;
+      border-radius: 0 0 50px 50px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+      position: relative;
+    }
+    .hero img {
+      width: 220px;
+      height: 220px;
+      margin-bottom: 1.1rem;
+      object-fit: cover;
+      /* Removed border, border-radius, box-shadow, background for plain image */
+    }
+    .hero h2 {
+      margin: 0 0 0.6rem 0;
+      font-size: 2.2rem;
+      color: #ff6f61;
+      font-family: 'Baloo 2', cursive, sans-serif;
+      text-shadow: 1px 2px 0 #fffde7;
+    }
+    .hero p {
+      margin: 0 0 1.2rem 0;
+      font-size: 1.15rem;
+      color: #555;
+      background: #fffde7cc;
+      border-radius: 16px;
+      padding: 0.5rem 1rem;
+      display: inline-block;
+      box-shadow: 0 1px 4px #ffe082;
+    }
+    .hero .bubble {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+      z-index: 0;
+    }
+    .bubble1 { width: 90px; height: 90px; left: 10vw; top: 30px; background: #ffb74d; }
+    .bubble2 { width: 60px; height: 60px; right: 12vw; top: 80px; background: #ffd180; }
+    .bubble3 { width: 40px; height: 40px; left: 20vw; bottom: 20px; background: #fffde7; }
+    .section {
+      max-width: 900px;
+      margin: 2.2rem auto;
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+      padding: 2.2rem 1.5rem;
+      position: relative;
+    }
+    .section h3 {
+      color: #ff6f61;
+      margin-top: 0;
+      font-size: 1.6rem;
+      font-family: 'Baloo 2', cursive, sans-serif;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      justify-content: center;
+      margin-top: 1.2rem;
+    }
+    .gallery img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 4px solid #ffb74d;
+      background: #fff;
+      box-shadow: 0 2px 12px #ffe082;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gallery img:hover {
+      transform: scale(1.12) rotate(-3deg);
+      box-shadow: 0 4px 24px #ffd180;
+    }
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.2rem;
+      justify-content: center;
+    }
+    .skill {
+      background: linear-gradient(90deg, #ffe082 60%, #ffd180 100%);
+      color: #ff6f61;
+      padding: 0.7rem 1.3rem;
+      border-radius: 22px;
+      font-weight: bold;
+      font-size: 1.08rem;
+      box-shadow: 0 1px 6px #ffe0b2;
+      font-family: 'Baloo 2', cursive, sans-serif;
+    }
+    .contact {
+      text-align: center;
+      margin-top: 2.2rem;
+    }
+    .contact a {
+      display: inline-block;
+      margin: 0.7rem;
+      background: #ff6f61;
+      color: #fff;
+      padding: 0.9rem 1.7rem;
+      border-radius: 28px;
+      text-decoration: none;
+      font-size: 1.15rem;
+      font-weight: bold;
+      box-shadow: 0 2px 12px #ffd180;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact a:hover {
+      background: #f8b500;
+      color: #fffde7;
+      transform: scale(1.08) rotate(-2deg);
+    }
+    footer {
+      text-align: center;
+      padding: 1.2rem 0 0.7rem 0;
+      color: #ffb74d;
+      font-size: 1.08rem;
+      margin-top: 2.5rem;
+      font-family: 'Baloo 2', cursive, sans-serif;
+      background: linear-gradient(90deg, #fffde7 60%, #ffe082 100%);
+      border-radius: 30px 30px 0 0;
+      box-shadow: 0 -2px 12px #ffe082;
+    }
+    @media (max-width: 700px) {
+      .hero {
+        min-height: 220px;
+        background-size: 100px;
+      }
+      .gallery img {
+        width: 80px;
+        height: 80px;
+      }
+      .section {
+        padding: 1.1rem 0.5rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .hero img {
+        width: 120px;
+        height: 120px;
+        /* Removed border-radius for mobile as well */
+      }
+      .gallery img {
+        width: 55px;
+        height: 55px;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-anim">
+    <span class="star-anim s1">★</span>
+    <span class="star-anim s2">★</span>
+    <span class="star-anim s3">★</span>
+    <span class="star-anim s4">★</span>
+    <span class="star-anim s5">★</span>
+    <span class="circle-anim c1"></span>
+    <span class="circle-anim c2"></span>
+    <span class="circle-anim c3"></span>
+    <span class="circle-anim c4"></span>
+    <span class="circle-anim c5"></span>
+  </div>
+  <header>
+    <h1>Welcome!!
+      <label class="theme-switch" aria-label="Toggle dark/light mode">
+        <input type="checkbox" id="theme-toggle" onchange="switchTheme()">
+        <span class="slider"></span>
+        <span class="theme-icons">
+          <span class="icon sun">☀️</span>
+          <span class="icon moon">🌙</span>
+        </span>
+      </label>
+    </h1>
+    <script>
+      function switchTheme() {
+        document.body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+        updateSwitch();
+      }
+      function updateSwitch() {
+        var toggle = document.getElementById('theme-toggle');
+        if(document.body.classList.contains('dark-theme')) {
+          toggle.checked = true;
+        } else {
+          toggle.checked = false;
+        }
+      }
+      window.onload = function() {
+        if(localStorage.getItem('theme') === 'dark') {
+          document.body.classList.add('dark-theme');
+        }
+        updateSwitch();
+      }
+    </script>
+    <nav>
+  <a href="#about">About</a>
+  <a href="#work">Work Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#student-corner">Student Corner</a>
+  <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <section class="hero">
+    <span class="bubble bubble1"></span>
+    <span class="bubble bubble2"></span>
+    <span class="bubble bubble3"></span>
+    <img src="images/me.png" alt="Profile picture" />
+    <h2>Hi! I'm Arun Karki (Hemulen) <span aria-label="wave" role="img">👋</span></h2>
+    <p>Teacher/writer</p>
+  </section>
+  <section class="section" id="about">
+    <h3>About Me</h3>
+    <p>I'm a creative kid who enjoys art, computers, and animals. I like to build websites, draw cartoons, and play outside with my dog. My favorite color is orange and I love learning new things every day!<br><br>
+    <strong>Fun Fact:</strong> I once built a robot that can draw smiley faces!</p>
+    <a href="journey.html" style="display:inline-block;margin-top:1.2em;padding:0.8em 1.6em;background:#ffb74d;color:#fff;font-weight:bold;border-radius:22px;text-decoration:none;box-shadow:0 2px 8px #ffd180;transition:background 0.2s;">
+      Read My Journey
+    </a>
+  </section>
+  <section class="section" id="work">
+    <h3>Work Experience</h3>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center;">
+      <div style="background: #fffde7; border-radius: 18px; box-shadow: 0 2px 8px #ffe082; padding: 1.2rem 1.5rem; min-width: 220px; max-width: 320px; flex: 1 1 220px; text-align:center;">
+        <a href="https://www.codecademy.com/" target="_blank" style="text-decoration:none;">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="Codecademy Logo" style="width:48px;height:48px;border-radius:12px;margin-bottom:0.5em;box-shadow:0 1px 4px #ffd180;" />
+          <br>
+          <strong style="color:#ff6f61; font-size:1.1em;">Junior Web Developer</strong>
+        </a><br>
+        <span style="color:#f8b500;">2024 - Present</span>
+        <p style="margin:0.7em 0 0 0; color:#555;">Building fun and interactive websites for school projects and friends. Learned HTML, CSS, and a bit of JavaScript!</p>
+      </div>
+      <div style="background: #fffde7; border-radius: 18px; box-shadow: 0 2px 8px #ffe082; padding: 1.2rem 1.5rem; min-width: 220px; max-width: 320px; flex: 1 1 220px; text-align:center;">
+        <a href="https://www.schoolartclub.com/" target="_blank" style="text-decoration:none;">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Art Club Logo" style="width:48px;height:48px;border-radius:12px;margin-bottom:0.5em;box-shadow:0 1px 4px #ffd180;" />
+          <br>
+          <strong style="color:#ff6f61; font-size:1.1em;">Art Club Member</strong>
+        </a><br>
+        <span style="color:#f8b500;">2023 - Present</span>
+        <p style="margin:0.7em 0 0 0; color:#555;">Created posters, comics, and digital art for school events. Helped organize the annual art show.</p>
+      </div>
+      <div style="background: #fffde7; border-radius: 18px; box-shadow: 0 2px 8px #ffe082; padding: 1.2rem 1.5rem; min-width: 220px; max-width: 320px; flex: 1 1 220px; text-align:center;">
+        <a href="https://www.firstinspires.org/robotics" target="_blank" style="text-decoration:none;">
+          <img src="https://cdn-icons-png.flaticon.com/512/4712/4712035.png" alt="Robotics Team Logo" style="width:48px;height:48px;border-radius:12px;margin-bottom:0.5em;box-shadow:0 1px 4px #ffd180;" />
+          <br>
+          <strong style="color:#ff6f61; font-size:1.1em;">Robotics Team</strong>
+        </a><br>
+        <span style="color:#f8b500;">2022 - 2024</span>
+        <p style="margin:0.7em 0 0 0; color:#555;">Worked with a team to build a robot that draws smiley faces. Learned teamwork, coding, and problem-solving.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="skills">
+    <h3>My Skills</h3>
+    <div class="skills">
+  
+  <span class="skill">Coding <span aria-label="laptop" role="img">💻</span></span>
+  <span class="skill">UI/UX <span aria-label="art" role="img">🎨</span></span>
+  <span class="skill">Graphic Designing <span aria-label="palette" role="img">🖌️</span></span>
+  <span class="skill">Social Media Handling <span aria-label="phone" role="img">�</span></span>
+  <span class="skill">Writing <span aria-label="writing" role="img">📝</span></span>
+  <span class="skill">Teamwork <span aria-label="team" role="img">🤝</span></span>
+  <span class="skill">Creativity <span aria-label="sparkles" role="img">✨</span></span>
+  <span class="skill">Kindness <span aria-label="heart" role="img">💖</span></span>
+  
+    </div>
+  </section>
+  <section class="section" id="student-corner">
+    <h3>Student Corner <span aria-label="books" role="img">📚</span></h3>
+    <p style="color:#ff6f61; font-weight:bold;">Download helpful PDFs for your studies!</p>
+    <div style="display:flex; flex-wrap:wrap; gap:1.2rem; justify-content:center; margin-top:1.2rem;">
+      <a href="resources/sample-math.pdf" download style="background:#fffde7; border-radius:16px; box-shadow:0 2px 8px #ffe082; padding:1.1rem 1.5rem; color:#ff6f61; font-weight:bold; text-decoration:none; min-width:180px; text-align:center; transition:background 0.2s;">
+        🧮 Math Notes (PDF)
+      </a>
+      <a href="resources/sample-science.pdf" download style="background:#fffde7; border-radius:16px; box-shadow:0 2px 8px #ffe082; padding:1.1rem 1.5rem; color:#ff6f61; font-weight:bold; text-decoration:none; min-width:180px; text-align:center; transition:background 0.2s;">
+        🔬 Science Guide (PDF)
+      </a>
+      <a href="resources/sample-english.pdf" download style="background:#fffde7; border-radius:16px; box-shadow:0 2px 8px #ffe082; padding:1.1rem 1.5rem; color:#ff6f61; font-weight:bold; text-decoration:none; min-width:180px; text-align:center; transition:background 0.2s;">
+        📖 English Stories (PDF)
+      </a>
+    </div>
+    <p style="margin-top:1.2rem; color:#888; font-size:0.98em;">Ask your teacher if you need more resources!</p>
+  </section>
+  <section class="section contact" id="contact">
+    <h3>Contact Me</h3>
+    <div style="display:flex;flex-direction:column;align-items:flex-start;gap:1.1em;font-size:1.08em;">
+    <div><strong>Phone:</strong> <a href="tel:+9779803243652/+9779861899728" style="color:#ffffff;text-decoration:none;">+9779803243652/+9779861899728</a></div>
+    <div><strong>Email:</strong> <a href="mailto:info.arunkarki@gmail.com" style="color:#ffffff;text-decoration:none;">info.arunkarki@gmail.com</a></div>
+    <div style="margin-top:0.5em;"><strong>Social:</strong>
+      <a href="https://www.instagram.com/i_m_a_k1021/" target="_blank" style="margin-left:0.7em;color:#ffffff;text-decoration:none;font-weight:bold;">Instagram</a>
+      <a href="https://www.youtube.com/@hemulen286" target="_blank" style="margin-left:0.7em;color:#ffffff;text-decoration:none;font-weight:bold;">YouTube</a>
+      <a href="https://www.facebook.com/qo88xnzxio" target="_blank" style="margin-left:0.7em;color:#ffffff;text-decoration:none;font-weight:bold;">Facebook</a>
+    </div>
+  </div>
+</section>
+
+
+  </section>
+  <footer>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 2rem; max-width: 900px; margin: 0 auto; padding-bottom: 0.5rem;">
+      <div style="flex: 1 1 180px; min-width: 160px; text-align: left;">
+        <strong style="color:#ff6f61; font-size:1.1em;">Arun's Portfolio</strong><br>
+        <span style="font-size:0.98em; color:#f8b500;">&copy; 2025 All rights reserved.</span>
+      </div>
+      <div style="flex: 1 1 180px; min-width: 160px; text-align: center;">
+        <span style="font-size:1.1em; color:#ffb74d;">Quick Links:</span><br>
+  <a href="#about" style="color:#ff6f61; text-decoration:none; margin:0 0.5em;">About</a>
+  <a href="#work" style="color:#ff6f61; text-decoration:none; margin:0 0.5em;">Work</a>
+  <a href="#skills" style="color:#ff6f61; text-decoration:none; margin:0 0.5em;">Skills</a>
+  <a href="#student-corner" style="color:#ff6f61; text-decoration:none; margin:0 0.5em;">Student Corner</a>
+  <a href="#contact" style="color:#ff6f61; text-decoration:none; margin:0 0.5em;">Contact</a>
+      </div>
+      <div style="flex: 1 1 180px; min-width: 160px; text-align: right;">
+        <span style="font-size:1.1em; color:#020202;">Made with a big smile!
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

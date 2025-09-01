@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+      localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+    }
+    function updateSwitch() {
+      var toggle = document.getElementById('theme-toggle');
+      if(document.body.classList.contains('dark-theme')) {
+        toggle.checked = true;
+      } else {
+        toggle.checked = false;
+      }
+    }
+    window.onload = function() {
+      if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+      }
+      updateSwitch();
+    }
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Journey - Jamie</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    body.dark-theme {
+      background: linear-gradient(135deg, #232526 0%, #414345 100%) !important;
+      color: #f3f3f3;
+    }
+    body.dark-theme header {
+      background: linear-gradient(90deg, #232526 60%, #414345 100%) !important;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+    }
+    body.dark-theme header h1 {
+      color: #ffe082;
+      text-shadow: 2px 3px 0 #232526, 0 1px 8px #414345;
+    }
+    body.dark-theme nav a {
+      background: #333;
+      color: #ffe082;
+      box-shadow: 0 2px 8px #232526;
+    }
+    body.dark-theme nav a:hover {
+      background: #ffb74d;
+      color: #232526;
+    }
+    body.dark-theme .journey-section {
+      background: #232526;
+      color: #ffe082;
+      box-shadow: 0 2px 16px #232526;
+    }
+    body.dark-theme .journey-section h2 {
+      color: #ffe082;
+    }
+    body.dark-theme .journey-section p,
+    body.dark-theme .journey-timeline .desc {
+      color: #ffe082;
+    }
+    body.dark-theme .journey-timeline {
+      border-left: 4px solid #ffe082;
+    }
+    body.dark-theme .journey-timeline li:before {
+      background: #ffe082;
+      box-shadow: 0 1px 4px #232526;
+    }
+    .theme-switch {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      width: auto;
+      height: 26px;
+      vertical-align: middle;
+      margin-left: 1em;
+      gap: 6px;
+    }
+    .slider {
+      position: relative;
+      cursor: pointer;
+      width: 48px;
+      height: 26px;
+      background: #ffb74d;
+      border-radius: 26px;
+      transition: background 0.3s;
+      box-shadow: 0 1px 4px #ffd180;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .slider:before {
+      position: absolute;
+      content: '';
+      height: 22px;
+      width: 22px;
+      left: 2px;
+      bottom: 2px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s;
+      box-shadow: 0 1px 4px #ffd180;
+    }
+    .theme-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .theme-switch input:checked + .slider {
+      background: #232526;
+    }
+    .theme-switch input:checked + .slider:before {
+      transform: translateX(22px);
+      background: #ffe082;
+    }
+    .theme-icons {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      margin-left: 4px;
+    }
+    .theme-icons .icon {
+      width: 12px;
+      height: 12px;
+      font-size: 0.7em;
+      opacity: 0.35;
+      filter: grayscale(0.5);
+      transition: opacity 0.3s, filter 0.3s;
+      display: inline-block;
+    }
+    .theme-switch input:not(:checked) ~ .theme-icons .icon.sun {
+      opacity: 1;
+      filter: none;
+    }
+    .theme-switch input:checked ~ .theme-icons .icon.moon {
+      opacity: 1;
+      filter: none;
+    }
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #fceabb 0%, #f8b500 100%);
+      color: #333;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(90deg, #f8b500 60%, #fceabb 100%);
+      padding: 1.5rem 0 1rem 0;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      color: #fff;
+      letter-spacing: 2px;
+      text-shadow: 2px 3px 0 #f8b500, 0 1px 8px #fff9c4;
+      font-family: 'Baloo 2', cursive, sans-serif;
+    }
+    nav {
+      margin-top: 0.7rem;
+    }
+    nav a {
+      color: #fff;
+      background: #ff6f61;
+      padding: 0.6rem 1.2rem;
+      border-radius: 22px;
+      margin: 0 0.3rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 8px #ffd180;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+    nav a:hover {
+      background: #ffb74d;
+      color: #fffde7;
+      transform: scale(1.08) rotate(-2deg);
+    }
+    .journey-section {
+      max-width: 800px;
+      margin: 2.5rem auto;
+      background: #fff;
+      border-radius: 28px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+      padding: 2.2rem 1.5rem;
+      position: relative;
+    }
+    .journey-section h2 {
+      color: #ff6f61;
+      margin-top: 0;
+      font-size: 1.7rem;
+      font-family: 'Baloo 2', cursive, sans-serif;
+    }
+    .journey-section p {
+      font-size: 1.15rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .journey-timeline {
+      margin: 2rem 0 0 0;
+      padding: 0;
+      list-style: none;
+      border-left: 4px solid #ffb74d;
+    }
+    .journey-timeline li {
+      margin: 0 0 2rem 0;
+      padding: 0 0 0 1.5rem;
+      position: relative;
+    }
+    .journey-timeline li:before {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 0.3em;
+      width: 18px;
+      height: 18px;
+      background: #ffb74d;
+      border-radius: 50%;
+      box-shadow: 0 1px 4px #ffd180;
+    }
+    .journey-timeline .year {
+      font-weight: bold;
+      color: #f8b500;
+      font-size: 1.1em;
+      margin-bottom: 0.2em;
+      display: block;
+    }
+    .journey-timeline .desc {
+      color: #333;
+      font-size: 1.08em;
+    }
+    @media (max-width: 600px) {
+      .journey-section {
+        padding: 1.1rem 0.5rem;
+      }
+      header h1 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Journey
+      <label class="theme-switch" aria-label="Toggle dark/light mode">
+        <input type="checkbox" id="theme-toggle" onchange="toggleTheme();updateSwitch();">
+        <span class="slider"></span>
+        <span class="theme-icons">
+          <span class="icon sun">☀️</span>
+          <span class="icon moon">🌙</span>
+        </span>
+      </label>
+    </h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about-me">About Me</a>
+      <a href="#timeline">Timeline</a>
+    </nav>
+  </header>
+  <section class="journey-section" id="about-me">
+    <h2>How it all begain </h2>
+    <p className="mb-4 leading-relaxed">
+            My journey began back in <strong>Grade 11</strong>, when I first started writing poems,
+            reflections, and small notes about how I felt. That spark taught me the power of
+            expression and showed me how words can connect people.
+          </p>
+
+          <p className="mb-4 leading-relaxed">
+            Around the same time I stepped into the world of technology, joining <strong>Lotus</strong>
+            as a <strong>Junior Software Tech</strong>. One year there built my resilience, sharpened my
+            problem-solving skills, and taught me to learn quickly.
+          </p>
+
+          <p className="mb-4 leading-relaxed">
+            After Lotus, I joined <strong>Ncell</strong> as a <strong>Customer Service Representative</strong>—a time when patience,
+            empathy, and listening became my daily tools. I then moved to <strong>Fonepay</strong> as
+            <strong> QA</strong>, and within months I earned a promotion to
+            <strong> Performance Assurance Officer / Outbound Supervisor</strong>. That role taught me how
+            to balance performance with people.
+          </p>
+
+          <p className="mb-4 leading-relaxed">
+            Later, at <strong>Ncash</strong> as a <strong>Supervisor</strong>, I trained teams often older
+            and more qualified than me. It humbled me and proved that leadership is about influence not age.
+          </p>
+
+          <p className="mb-4 leading-relaxed">
+            Through all these roles, a quiet calling grew: I wanted to work with children. After
+            years of training professionals, I longed to help a child discover their potential.During my years in tech, I didn’t just rely on roles and titles. I pushed myself to self-learn UI/UX and Excel through online courses. I wanted to understand how people interact with systems, and how data can make decisions clearer. These skills later became tools I used to guide my teams—and now, I use them to make my teaching resources simple, structured, and easy for students to follow.
+          </p>
+
+          <p className="mb-4 leading-relaxed">
+            I owe this path to my family and my partner. My father always encouraged me to follow my
+            heart, and my partner gave me the courage to return to the school where I once studied.
+            A year into teaching now, I stand in the same classroom I sat in and I teach the way I
+            always wished to be taught.
+          </p>
+
+          <p className="mb-4 leading-relaxed">
+            I focus on building <strong>life skills</strong>—not just textbook answers, but confidence,
+            curiosity, and the courage to try. I don’t want students to fear mistakes; I want them to
+            see mistakes as steps forward. Teaching is my responsibility and my blessing.
+          </p>
+
+          <p className="mt-6 font-medium">Happy learning.</p>
+  </section>
+  </section>
+  
+  <section class="journey-section" id="timeline">
+    <h2>My Timeline</h2>
+    <ul class="journey-timeline">
+      <li><span class="desc">✍️ Grade 11 — Began writing poetry & reflections</span></li>
+      <li><span class="desc">💻 Lotus — Junior Software Tech (1 year)</span></li>
+      <li><span class="desc">📞 Ncell — Customer Service Representative</span></li>
+      <li><span class="desc">🔍 Fonepay — QA → Promoted to Performance Assurance Officer / Outbound Supervisor</span></li>
+      <li><span class="desc">📊 Self-Learning — Studied UI/UX & Excel online (self-taught)</span></li>
+      <li><span class="desc">🎯 Ncash — Supervisor; trained professionals older than me</span></li>
+      <li><span class="desc">🏫 Kirti secondary boaring school — Now teaching building life skills & curiosity</span></li>
+    </ul>
+  </section>
+  <section class="journey-section" id="contact">
+  <h2>Contact Me</h2>
+  <div style="display:flex;flex-direction:column;align-items:flex-start;gap:1.1em;font-size:1.08em;">
+    <div><strong>Phone:</strong> <a href="tel:+9779803243652/+9779861899728" style="color:#ff6f61;text-decoration:none;">+9779803243652/+9779861899728</a></div>
+    <div><strong>Email:</strong> <a href="mailto:info.arunkarki@gmail.com" style="color:#ff6f61;text-decoration:none;">info.arunkarki@gmail.com</a></div>
+    <div style="margin-top:0.5em;"><strong>Social:</strong>
+      <a href="https://www.instagram.com/i_m_a_k1021/" target="_blank" style="margin-left:0.7em;color:#ff6f61;text-decoration:none;font-weight:bold;">Instagram</a>
+      <a href="https://www.youtube.com/@hemulen286" target="_blank" style="margin-left:0.7em;color:#ff6f61;text-decoration:none;font-weight:bold;">YouTube</a>
+      <a href="https://www.facebook.com/qo88xnzxio" target="_blank" style="margin-left:0.7em;color:#ff6f61;text-decoration:none;font-weight:bold;">Facebook</a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
