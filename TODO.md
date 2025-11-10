@@ -1,5 +1,9 @@
-# TODO: Add PDF Links to Student Corner
+# TODO: Modernize UI/UX with Smooth Transitions and Animations
 
-- [ ] Add download link for Class 7 PDF (resources/Class 7-8.pdf) in the Class 7 story card
-- [ ] Add download link for Class 8 PDF (resources/class 8.pdf) in the Class 8 story card
-- [ ] Test the PDF links to ensure they download/open correctly
+- [ ] Add scroll-triggered animations for sections (fade-in on scroll) - Implement Intersection Observer for smooth reveals
+- [ ] Enhance existing hover effects with smoother transitions and micro-interactions - Update all hover states with cubic-bezier easing
+- [ ] Introduce advanced CSS animations like floating elements, pulse effects, and improved gradients - Add floating background elements and pulse animations
+- [ ] Add a subtle loading animation for the page - Create a loading screen with fade-out transition
+- [ ] Improve glassmorphism and shadows for a more premium look - Enhance backdrop-filter and box-shadow properties
+- [ ] Add smooth scrolling and transition effects between sections - Implement smooth scroll behavior and section transitions
+- [ ] Test all animations across different devices and browsers for performance
