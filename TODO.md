@@ -1,7 +1,5 @@
-# TODO List for Hero Section Improvements
+# TODO: Add PDF Links to Student Corner
 
-- [x] Update Hero.jsx component to layout photo on left and name/text in center using flexbox
-- [ ] Add scrolling effect (fade-in on scroll) to hero section elements
-- [ ] Update styles.css with new hero section styles and animations
-- [ ] Ensure responsive design for mobile and tablet views
-- [ ] Test the changes and verify functionality
+- [ ] Add download link for Class 7 PDF (resources/Class 7-8.pdf) in the Class 7 story card
+- [ ] Add download link for Class 8 PDF (resources/class 8.pdf) in the Class 8 story card
+- [ ] Test the PDF links to ensure they download/open correctly
