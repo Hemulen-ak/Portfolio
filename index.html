@@ -17,6 +17,8 @@
       --para: #000000; /* paragraph text (black by default) */
       --accent: #b49a6c; /* soft gold */
       --accent-2: #0f766e; /* soft green */
+      --accent-3: #3b82f6; /* vibrant blue */
+      --accent-4: #8b5cf6; /* vibrant purple */
       --glass: rgba(255,255,255,0.04);
       --shadow: 0 16px 40px rgba(31,41,55,0.06);
       --border: 1px solid rgba(31,41,55,0.06);
@@ -108,22 +110,70 @@
 
     footer{margin-top:28px;text-align:center;color:var(--muted);font-size:14px;padding-top:10px;border-top:1px solid rgba(0,0,0,0.04)}
 
-    @media (max-width:900px){.grid{grid-template-columns:1fr}.stories{grid-template-columns:repeat(2,1fr)}.avatar{width:96px;height:96px;font-size:28px}}
-    /* Top navigation */
-    .top-nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.75));backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,0.04);border-radius:0 0 10px 10px}
-    .top-nav .brand{font-weight:700;font-family:Merriweather,serif;color:var(--text);display:flex;gap:12px;align-items:center}
-    .top-nav .brand .logo{width:40px;height:40px;border-radius:8px;overflow:hidden;display:inline-block}
-    .top-nav .nav-links{display:flex;gap:10px;align-items:center}
-    .top-nav .nav-links a{color:var(--text);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;transition:background 140ms ease,transform 140ms ease}
-    .top-nav .nav-links a:hover{background:rgba(15,118,110,0.06);transform:translateY(-3px)}
-    .nav-toggle{display:none;background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px;border-radius:8px}
+    /* Enhanced Responsiveness */
+    @media (max-width:1200px){
+      .wrap{max-width:900px;padding:20px}
+      .grid{grid-template-columns:1.5fr 1fr;gap:16px}
+      .stories{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .stories{grid-template-columns:repeat(2,1fr)}
+      .avatar{width:96px;height:96px;font-size:28px}
+      .name{font-size:24px}
+      .tagline{font-size:16px}
+      .wrap{padding:16px}
+    }
 
     @media (max-width:720px){
+      .stories{grid-template-columns:1fr}
       .top-nav{padding:8px 12px}
       .top-nav .nav-links{position:absolute;left:0;right:0;top:56px;background:var(--card);flex-direction:column;padding:12px;gap:6px;border-bottom-left-radius:12px;border-bottom-right-radius:12px;box-shadow:var(--shadow);display:none}
       .top-nav .nav-links.open{display:flex}
       .nav-toggle{display:inline-flex}
+      .hero-meta{flex:1}
+      .exp-item .exp-logo{width:48px;height:48px}
+      .exp-meta{font-size:12px}
+      .card{padding:14px}
+      .story-body{padding:10px}
     }
+
+    @media (max-width:600px){
+      .wrap{max-width:100%;padding:12px}
+      .grid{gap:12px;margin-top:16px}
+      .avatar{width:80px;height:80px;font-size:24px}
+      .name{font-size:20px}
+      .tagline{font-size:14px}
+      .hero-left{flex:0 0 100px}
+      .top-nav .brand .logo{width:32px;height:32px}
+      .top-nav .brand{font-size:14px}
+      .social-link{width:36px;height:36px}
+      .social-link svg{width:16px;height:16px}
+      .icon-btn{width:32px;height:32px}
+      .icon-btn svg{width:16px;height:16px}
+    }
+
+    @media (max-width:480px){
+      .wrap{padding:8px}
+      .card{padding:12px;border-radius:8px}
+      .story{min-height:200px}
+      .story-cover{height:120px}
+      .exp-item{padding:12px}
+      .exp-list{gap:8px}
+      .socials{gap:6px}
+      .top-nav .nav-links a{padding:6px 8px;font-size:14px}
+    }
+
+    /* Top navigation */
+    .top-nav{position:sticky;top:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.75));backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,0.04);border-radius:0 0 10px 10px}
+    .top-nav .brand{font-weight:700;font-family:Merriweather,serif;color:var(--text);display:flex;gap:12px;align-items:center}
+    .top-nav .brand .logo{width:40px;height:40px;border-radius:8px;overflow:hidden;display:inline-block}
+    .top-nav .nav-links{display:none;gap:10px;align-items:center}
+    .top-nav .nav-links.open{display:flex;position:absolute;left:0;right:0;top:56px;background:var(--card);flex-direction:column;padding:12px;gap:6px;border-bottom-left-radius:12px;border-bottom-right-radius:12px;box-shadow:var(--shadow)}
+    .top-nav .nav-links a{color:var(--text);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600;transition:background 140ms ease,transform 140ms ease}
+  .top-nav .nav-links a:hover{background:linear-gradient(90deg,var(--accent-3),var(--accent-4));color:#fff;transform:translateY(-3px);box-shadow:0 8px 24px rgba(59,130,246,0.3)}
+    .nav-toggle{display:inline-flex;background:transparent;border:1px solid rgba(0,0,0,0.06);padding:8px;border-radius:8px}
   /* glowness: stronger colored glow and smooth transitions */
   :root{--glow-accent: rgba(15,118,110,0.16);--glow-warm: rgba(180,154,108,0.12)}
   .top-nav{border:1px solid rgba(15,118,110,0.06);box-shadow:0 6px 18px rgba(15,118,110,0.03)}
@@ -261,7 +311,7 @@
                       </button>
                     </div>
                     <div class="story-body">
-                      <h3>Class 6 </h3>
+                      <h3>Class 5 </h3>
                            </div>
                   </div>
                 </article>
@@ -278,12 +328,31 @@
                       </button>
                     </div>
                     <div class="story-body">
-                      <h3>Class 7</h3>
-                      <p class="small"><a href="resources/Class 7-8.pdf" download>Download PDF</a></p>
+                      <h3>Class 6</h3>
+                      <p class="small"><a href="resources/Class 7 ppt.pdf" download>Download PDF</a></p>
                          </div>
                   </div>
                 </article>
 
+                <article class="story">
+                  <div class="story-card">
+                    <img class="story-cover" src="images/PPt.jpg" alt="Novel cover 3">
+                    <div class="story-overlay" aria-hidden="true">
+                      <button class="icon-btn read" aria-label="Read">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 6v13a1 1 0 001 1h14V6H3zm16-2H5a1 1 0 00-1 1v1h16V5a1 1 0 00-1-1z"/></svg>
+                      </button>
+                      <button class="icon-btn like" aria-label="Like">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 21s-7.5-4.35-9.5-6.28C-1 11.22 3.5 6 7.5 8.5 9.19 9.63 12 11.5 12 11.5s2.81-1.87 4.5-3c4-2.5 8.5 2.72 4.5 6.22C19.5 16.65 12 21 12 21z"/></svg>
+                      </button>
+                    </div>
+                    <div class="story-body">
+                      <h3>Class 7 </h3>
+                      <p class="small"><a href="resources/Class 7 ppt.pdf" download>Download PDF</a></p>
+                      
+                      
+                    </div>
+                  </div>
+                </article>
                 <article class="story">
                   <div class="story-card">
                     <img class="story-cover" src="images/PPt.jpg" alt="Novel cover 3">
