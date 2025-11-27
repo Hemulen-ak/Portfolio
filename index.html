@@ -17,7 +17,14 @@
             <a href="#" class="logo">
                 <span class="text-gradient">Arun</span>Karki
             </a>
-            <nav>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <nav class="nav-container">
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
@@ -25,7 +32,16 @@
                     <li><a href="#resources" class="nav-link">Student Corner</a></li>
                 </ul>
             </nav>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem;" class="desktop-actions">
+                <div
+                    style="background: rgba(139, 92, 246, 0.1); padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid rgba(139, 92, 246, 0.3); display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="ri-pulse-line" style="color: var(--primary); font-size: 1.2rem;"></i>
+                    <span style="color: var(--text-main); font-size: 0.9rem; font-weight: 500;"
+                        id="visitor-count">Loading...</span>
+                </div>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
         </div>
     </header>
 
@@ -48,8 +64,20 @@
             </div>
 
             <div class="hero-image-container fade-in">
-                <div class="hero-glow"></div>
-                <img src="profile.jpg" alt="Arun Karki" class="hero-image">
+                <div class="wanted-poster">
+                    <div class="poster-top">
+                        <span class="wanted-text">WANTED</span>
+                        <span class="dead-alive">DEAD OR ALIVE</span>
+                    </div>
+                    <div class="poster-image-container">
+                        <img src="profile.jpg" alt="Arun Karki" class="hero-image">
+                    </div>
+                    <div class="poster-bottom">
+                        <span class="poster-name">ARUN KARKI</span>
+                        <span class="poster-bounty">฿ 100,000,000</span>
+                        <span class="marine-text">MARINE</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -96,7 +124,7 @@
         <div class="container">
             <h2 class="fade-in">Experience & Works</h2>
             <div class="portfolio-grid">
-                <article class="project-card fade-in">
+                <article class="project-card stitch-border fade-in">
                     <div class="project-image"
                         style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
                         <i class="ri-book-open-line" style="font-size: 3rem; color: var(--primary);"></i>
@@ -119,7 +147,7 @@
                     </div>
                 </article>
 
-                <article class="project-card fade-in">
+                <article class="project-card stitch-border fade-in">
                     <div class="project-image"
                         style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
                         <i class="ri-quill-pen-line" style="font-size: 3rem; color: var(--secondary);"></i>
@@ -142,10 +170,10 @@
                     </div>
                 </article>
 
-                <article class="project-card fade-in">
+                <article class="project-card stitch-border fade-in">
                     <div class="project-image"
                         style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
-                        <i class="ri-customer-service-2-line" style="font-size: 3rem; color: #a1a1aa;"></i>
+                        <i class="ri-headphone-line" style="font-size: 3rem; color: #a1a1aa;"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Call Center Supervisor</h3>
@@ -164,10 +192,10 @@
                     </div>
                 </article>
 
-                <article class="project-card fade-in">
+                <article class="project-card stitch-border fade-in">
                     <div class="project-image"
                         style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
-                        <i class="ri-shield-check-line" style="font-size: 3rem; color: var(--primary);"></i>
+                        <i class="ri-microscope-line" style="font-size: 3rem; color: var(--primary);"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Quality Analyst</h3>
@@ -186,10 +214,10 @@
                     </div>
                 </article>
 
-                <article class="project-card fade-in">
+                <article class="project-card stitch-border fade-in">
                     <div class="project-image"
                         style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
-                        <i class="ri-headphone-line" style="font-size: 3rem; color: var(--secondary);"></i>
+                        <i class="ri-service-line" style="font-size: 3rem; color: var(--secondary);"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Customer Support Agent</h3>
@@ -219,7 +247,7 @@
                 <div class="resource-card fade-in">
                     <div class="resource-info">
                         <div class="file-icon" style="background: rgba(139, 92, 246, 0.1); color: var(--primary);">
-                            <i class="ri-award-line"></i>
+                            <i class="ri-medal-line"></i>
                         </div>
                         <div class="resource-details">
                             <h3>Fundamentals of Digital Marketing</h3>
@@ -232,7 +260,7 @@
                 <div class="resource-card fade-in">
                     <div class="resource-info">
                         <div class="file-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--secondary);">
-                            <i class="ri-award-line"></i>
+                            <i class="ri-medal-line"></i>
                         </div>
                         <div class="resource-details">
                             <h3>Microsoft Excel Certification</h3>
@@ -307,7 +335,7 @@
                 <a href="tel:+9779861899728" class="btn btn-primary">
                     <i class="ri-phone-line"></i> +977 9861899728
                 </a>
-                <a href="mailto:info@arunkarki1023.com.np" class="btn btn-outline">
+                <a href="mailto:info.arunkarki@gmail.com" class="btn btn-outline">
                     <i class="ri-mail-line"></i> Email Me
                 </a>
             </div>
@@ -331,12 +359,19 @@
     </section>
 
     <footer class="footer">
-        <div class="container">
+        <div class="container" style="text-align: center;">
             <p>&copy; 2025 Arun Karki. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Simple visitor counter using localStorage
+        let visits = localStorage.getItem('visitCount') || 0;
+        visits = parseInt(visits) + 1;
+        localStorage.setItem('visitCount', visits);
+        document.getElementById('visitor-count').textContent = visits + ' views';
+    </script>
 </body>
 
 </html>
