@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+
 :root {
     /* One Piece Theme Palette - Dark Mode */
     --primary: #DC143C;
@@ -33,8 +35,8 @@
     --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     /* Fonts */
-    --font-heading: 'Outfit', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Pirata One', cursive;
+    --font-body: 'Pirata One', cursive;
 }
 
 /* Global Reset */
@@ -99,6 +101,11 @@ img {
     background-clip: text;
     animation: gradient-shift 3s ease infinite;
     background-size: 200% 200%;
+}
+
+.font-normal {
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
 }
 
 @keyframes gradient-shift {
@@ -206,7 +213,7 @@ img {
 
 .nav-link {
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.3rem;
     position: relative;
     padding: 0.5rem 0;
     transition: var(--transition-fast);
@@ -246,7 +253,7 @@ img {
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     transition: var(--transition-smooth);
     cursor: pointer;
     border: none;
@@ -374,7 +381,7 @@ img {
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--text-muted);
     margin-bottom: 2rem;
     line-height: 1.8;
@@ -499,7 +506,7 @@ img {
 
 .stat-label {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 1.2rem;
 }
 
 .project-tags {
@@ -612,7 +619,7 @@ img {
 
 .project-desc {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 1.2rem;
     margin-bottom: 1rem;
     line-height: 1.6;
 }
@@ -717,7 +724,7 @@ img {
 
 .footer p {
     color: var(--text-muted);
-    font-size: 0.95rem;
+    font-size: 1.1rem;
 }
 
 /* Sakura Animation */
