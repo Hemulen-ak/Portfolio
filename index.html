@@ -35,12 +35,6 @@
             </nav>
 
             <div style="display: flex; align-items: center; gap: 1.5rem;" class="desktop-actions">
-                <div
-                    style="background: rgba(139, 92, 246, 0.1); padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid rgba(139, 92, 246, 0.3); display: flex; align-items: center; gap: 0.5rem;">
-                    <i class="ri-pulse-line" style="color: var(--primary); font-size: 1.2rem;"></i>
-                    <span style="color: var(--text-main); font-size: 0.9rem; font-weight: 500;"
-                        id="visitor-count">Loading...</span>
-                </div>
                 <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
         </div>
@@ -123,7 +117,9 @@
 
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="fade-in">Experience & Works</h2>
+            <h2 class="fade-in">⚓ Adventure Log & Crew Positions</h2>
+            <p class="fade-in" style="color: var(--text-muted); margin-bottom: 2rem; text-align: center;">My journey
+                across different seas and roles</p>
             <div class="portfolio-grid">
                 <article class="project-card stitch-border fade-in">
                     <div class="project-image"
@@ -174,7 +170,7 @@
                 <article class="project-card stitch-border fade-in">
                     <div class="project-image"
                         style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
-                        <i class="ri-headphone-line" style="font-size: 3rem; color: #a1a1aa;"></i>
+                        <i class="ri-headphone-line" style="font-size: 3rem; color: var(--accent);"></i>
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">Call Center Supervisor</h3>
@@ -243,11 +239,11 @@
 
     <section id="certifications" class="section" style="background: var(--bg-surface-transparent);">
         <div class="container">
-            <h2 class="fade-in">Certifications & Achievements</h2>
+            <h2 class="fade-in">🏆 Certifications & Achievements</h2>
             <div class="resources-list" style="margin-top: 2rem;">
                 <div class="resource-card fade-in">
                     <div class="resource-info">
-                        <div class="file-icon" style="background: rgba(139, 92, 246, 0.1); color: var(--primary);">
+                        <div class="file-icon" style="background: rgba(220, 20, 60, 0.1); color: var(--primary);">
                             <i class="ri-medal-line"></i>
                         </div>
                         <div class="resource-details">
@@ -260,7 +256,7 @@
 
                 <div class="resource-card fade-in">
                     <div class="resource-info">
-                        <div class="file-icon" style="background: rgba(6, 182, 212, 0.1); color: var(--secondary);">
+                        <div class="file-icon" style="background: rgba(30, 144, 255, 0.1); color: var(--secondary);">
                             <i class="ri-medal-line"></i>
                         </div>
                         <div class="resource-details">
@@ -276,19 +272,19 @@
 
     <section id="resources" class="section">
         <div class="container">
-            <h2 class="fade-in">Student Corner</h2>
-            <p class="fade-in" style="color: var(--text-muted); margin-bottom: 2rem;">Access lecture notes and class
-                materials.</p>
+            <h2 class="fade-in">🏴‍☠️ Treasure Vault - Student Corner</h2>
+            <p class="fade-in" style="color: var(--text-muted); margin-bottom: 2rem;">Navigate the knowledge seas -
+                Access lecture notes and class materials</p>
 
             <div class="resources-list">
                 <div class="resource-card fade-in">
                     <div class="resource-info">
                         <div class="file-icon">
-                            <i class="ri-file-ppt-2-line"></i>
+                            <i class="ri-treasure-map-line"></i>
                         </div>
                         <div class="resource-details">
                             <h3>Class 6 Materials</h3>
-                            <span class="resource-meta">Presentation • PDF</span>
+                            <span class="resource-meta">Internet • PDF</span>
                         </div>
                     </div>
                     <a href="https://www.arunkarki1023.com.np/resources/Class%206%20ppt.pdf" class="btn btn-outline"
@@ -298,32 +294,31 @@
                 <div class="resource-card fade-in">
                     <div class="resource-info">
                         <div class="file-icon">
-                            <i class="ri-file-ppt-2-line"></i>
+                            <i class="ri-archive-line"></i>
                         </div>
                         <div class="resource-details">
-                            <h3>Class 7 Materials</h3>
-                            <span class="resource-meta">Presentation • PDF</span>
+                            <h3>Class 7 </h3>
+                            <span class="resource-meta">Cyber Law • PDF</span>
                         </div>
                     </div>
-                    <a href="https://www.arunkarki1023.com.np/resources/Class%207%20ppt.pdf" class="btn btn-outline"
+                    <a href="https://www.arunkarki1023.com.np/resources/class%208.pdf" class="btn btn-outline"
                         target="_blank">Download</a>
                 </div>
 
                 <div class="resource-card fade-in">
                     <div class="resource-info">
                         <div class="file-icon">
-                            <i class="ri-file-pdf-line"></i>
+                            <i class="ri-archive-line"></i>
                         </div>
                         <div class="resource-details">
-                            <h3>Class 8 Materials</h3>
-                            <span class="resource-meta">PDF Document</span>
+                            <h3>Class 8 </h3>
+                            <span class="resource-meta">Cyber Law • PDF</span>
                         </div>
                     </div>
                     <a href="https://www.arunkarki1023.com.np/resources/class%208.pdf" class="btn btn-outline"
                         target="_blank">Download</a>
                 </div>
             </div>
-        </div>
     </section>
 
     <section id="contact" class="section" style="background: var(--glass-bg); margin-top: 4rem;">
@@ -366,13 +361,6 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Simple visitor counter using localStorage
-        let visits = localStorage.getItem('visitCount') || 0;
-        visits = parseInt(visits) + 1;
-        localStorage.setItem('visitCount', visits);
-        document.getElementById('visitor-count').textContent = visits + ' views';
-    </script>
 </body>
 
 </html>
