@@ -2,376 +2,273 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arun Karki - Portfolio & Resources</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun Karki | Demon Slayer Corps</title>
     <link rel="icon" type="image/png" href="pp.png">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=3">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Permanent+Marker&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <!-- Deployed at: 2025-11-27T16:21:00 -->
+    <!-- Demon Slayer Background -->
+    <div class="bg-texture"></div>
+    <canvas id="wisteriaCanvas"></canvas>
 
-    <header class="header">
-        <div class="container">
-            <a href="#" class="logo">
-                <span class="text-gradient">Arun</span>Karki
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="slayer-rank">CODE HASHIRA & SENSEI</span>
+                <h1 class="breath-title">
+                    Arun Karki
+                </h1>
+                <p class="hero-quote">
+                    "Set your heart ablaze! Go beyond your limits!"
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#experience" class="btn-katana">
+                        <span class="btn-text">Start Mission</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="slayer-name-card">
+                    <div class="card-frame">
+                        <div class="shine-effect"></div>
+                        <img src="pp.png" alt="Arun Karki" class="card-avatar">
+                        <div class="card-info">
+                            <h2 class="card-name">Arun Karki</h2>
+                            <span class="card-rank">Code Hashira</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="section-header">
+            <h2>Total Concentration</h2>
+        </div>
+
+        <div class="skills-grid">
+            <div class="demon-card">
+                <h3><i class="ri-fire-fill"></i> Breathing Styles</h3>
+                <p style="margin-top: 1rem; line-height: 1.6;">
+                    I master the art of teaching and storytelling. Like a Hashira refining their swordsmanship, I hone
+                    my skills in education and creative writing to inspire the next generation of slayers.
+                    <br><br>
+                    Currently serving at Kirti Secondary Boarding School, guiding young minds to find their own path.
+                </p>
+            </div>
+
+            <div class="demon-card">
+                <h3><i class="ri-sword-fill"></i> Combat Skills</h3>
+                <div style="margin-top: 1.5rem;">
+                    <div class="skill-bar-container">
+                        <div class="skill-label">
+                            <span>Teaching (Water Breathing)</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-label">
+                            <span>UI/UX (Thunder Breathing)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-label">
+                            <span>Writing (Flame Breathing)</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-track">
+                            <div class="skill-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <div class="section-header">
+            <h2>Corps Rankings</h2>
+        </div>
+
+        <div class="missions-grid">
+            <!-- Cert 1 -->
+            <a href="https://learndigital.withgoogle.com/digitalgarage" target="_blank" style="text-decoration: none;">
+                <div class="mission-card">
+                    <div class="mission-rank">KINOE</div>
+                    <h3>Digital Marketing</h3>
+                    <p style="color: #aaa; margin-top: 0.5rem;">Google Digital Garage</p>
+                </div>
             </a>
 
-            <div class="menu-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-
-            <nav class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#resources" class="nav-link">Student Corner</a></li>
-                </ul>
-            </nav>
-
-            <div style="display: flex; align-items: center; gap: 1.5rem;" class="desktop-actions">
-                <a href="#contact" class="btn btn-outline">Contact Me</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="hero-bg"></div>
-        <div class="container">
-            <div class="hero-image-container fade-in">
-                <div class="wanted-poster">
-                    <div class="poster-top">
-                        <span class="wanted-text">WANTED</span>
-                        <span class="dead-alive">DEAD OR ALIVE</span>
-                    </div>
-                    <div class="poster-image-container">
-                        <img src="pp.png" alt="Arun Karki" class="hero-image">
-                    </div>
-                    <div class="poster-bottom">
-                        <span class="poster-name">ARUN KARKI <br> (HEMULEN)</span>
-                        <span class="poster-bounty">฿ 100,000,000</span>
-                        <span class="marine-text">MARINE</span>
-                    </div>
+            <!-- Cert 2 -->
+            <a href="https://www.mygreatlearning.com/certificate/JUZAWPFK?referrer_code=GLNFWCTKTZS_E" target="_blank"
+                style="text-decoration: none;">
+                <div class="mission-card">
+                    <div class="mission-rank">KINOTO</div>
+                    <h3>Excel Expert</h3>
+                    <p style="color: #aaa; margin-top: 0.5rem;">Great Learning</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="hero-content fade-in">
-                <h1 class="hero-title">
-                    Inspiring <br />
-                    <span class="text-gradient">Minds & Readers</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Aspiring Novelist, Educator, and Mentor. Blending classroom practice with creative writing to
-                    inspire learners and readers alike.
-                </p>
-                <div class="hero-actions">
-                    <a href="#experience" class="btn btn-primary">My Journey</a>
-                    <a href="#resources" class="btn btn-outline">Student Resources</a>
+            <!-- Cert 3 -->
+            <a href="https://www.mygreatlearning.com/certificate/ZQDNLFVK?referrer_code=GLNFWCTKTZS_E" target="_blank"
+                style="text-decoration: none;">
+                <div class="mission-card">
+                    <div class="mission-rank">HASHIRA</div>
+                    <h3>UI/UX Design</h3>
+                    <p style="color: #aaa; margin-top: 0.5rem;">Great Learning</p>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 
-    <section id="about" class="section">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text fade-in">
-                    <h2>About Me</h2>
-                    <p>
-                        I blend teaching with creative writing. As an aspiring novelist and experienced call center
-                        supervisor, I bring leadership, empathy, and a storyteller's eye into the classroom.
-                    </p>
-                    <p>
-                        I have written three short novels and am currently teaching at Kirti Secondary Boarding School.
-                        My passion lies in transforming education through storytelling and mentorship.
-                    </p>
-                    <div style="margin-top: 2rem;">
-                        <h4 style="margin-bottom: 1rem;">Skills</h4>
-                        <div class="project-tags">
-                            <span class="tag">Creative Writing</span>
-                            <span class="tag">Teaching</span>
-                            <span class="tag">Team Leadership</span>
-                            <span class="tag">Digital Marketing</span>
-                            <span class="tag">Excel</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-stats fade-in">
-                    <div class="stat-card">
-                        <span class="stat-number">3</span>
-                        <span class="stat-label">Novels Written</span>
-                    </div>
-                    <div style="margin-top: 1rem;" class="stat-card">
-                        <span class="stat-number">Teacher</span>
-                        <span class="stat-label">at Kirti Secondary Boarding School</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    <!-- Experience Section -->
     <section id="experience" class="section">
-        <div class="container">
-            <h2 class="fade-in">⚓ Adventure Log & Crew Positions</h2>
-            <p class="fade-in" style="color: var(--text-muted); margin-bottom: 2rem; text-align: center;">My journey
-                across different seas and roles</p>
-            <div class="portfolio-grid">
-                <article class="project-card stitch-border fade-in">
-                    <div class="project-image"
-                        style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
-                        <i class="ri-book-open-line" style="font-size: 3rem; color: var(--primary);"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Educator</h3>
-                        <p style="color: var(--secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Kirti Secondary
-                            Boarding School</p>
-                        <p class="project-desc">
-                            • Teaching English and creative writing to students<br>
-                            • Curriculum planning and student mentoring<br>
-                            • Leading class projects and integrating creative writing<br>
-                            • Developing educational materials for grades 6-8
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Education</span>
-                            <span class="tag">Mentorship</span>
-                            <span class="tag">Curriculum Design</span>
-                        </div>
-                    </div>
-                </article>
+        <div class="section-header">
+            <h2>Mission Log</h2>
+        </div>
 
-                <article class="project-card stitch-border fade-in">
-                    <div class="project-image"
-                        style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
-                        <i class="ri-quill-pen-line" style="font-size: 3rem; color: var(--secondary);"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Novelist & Writer</h3>
-                        <p style="color: var(--secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Independent Author
-                        </p>
-                        <p class="project-desc">
-                            • Author of three short novels<br>
-                            • Writing fiction with themes of transformation<br>
-                            • Available for commissions and collaborations<br>
-                            • Developing new creative writing projects
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Fiction</span>
-                            <span class="tag">Storytelling</span>
-                            <span class="tag">Creative Writing</span>
-                        </div>
-                    </div>
-                </article>
+        <div class="missions-grid">
+            <!-- Role 1 -->
+            <div class="demon-card">
+                <h3 style="color: var(--tanjiro-green)">Educator</h3>
+                <h4 style="color: #aaa; margin-bottom: 1rem;">Kirti Secondary School | Present</h4>
+                <p>Teaching English and creative writing. Mentoring students and leading projects.</p>
+            </div>
 
-                <article class="project-card stitch-border fade-in">
-                    <div class="project-image"
-                        style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
-                        <i class="ri-headphone-line" style="font-size: 3rem; color: var(--accent);"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Call Center Supervisor</h3>
-                        <p style="color: var(--secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">N Cash</p>
-                        <p class="project-desc">
-                            • Supervised support teams and workflows<br>
-                            • Coached agents for higher customer satisfaction<br>
-                            • Quality assurance and performance monitoring<br>
-                            • Process improvements across support functions
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Leadership</span>
-                            <span class="tag">Quality Assurance</span>
-                            <span class="tag">Team Management</span>
-                        </div>
-                    </div>
-                </article>
+            <!-- Role 2 -->
+            <div class="demon-card">
+                <h3 style="color: var(--tanjiro-green)">Novelist</h3>
+                <h4 style="color: #aaa; margin-bottom: 1rem;">Independent | Present</h4>
+                <p>Author of three short novels. Exploring themes of transformation.</p>
+            </div>
 
-                <article class="project-card stitch-border fade-in">
-                    <div class="project-image"
-                        style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
-                        <i class="ri-microscope-line" style="font-size: 3rem; color: var(--primary);"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Quality Analyst</h3>
-                        <p style="color: var(--secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Fonepay</p>
-                        <p class="project-desc">
-                            • Quality assurance and performance monitoring<br>
-                            • Process improvements across support functions<br>
-                            • Supporting quality and operations across projects<br>
-                            • Data analysis and reporting
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">QA</span>
-                            <span class="tag">Process Improvement</span>
-                            <span class="tag">Analytics</span>
-                        </div>
-                    </div>
-                </article>
+            <!-- Role 3 -->
+            <div class="demon-card">
+                <h3 style="color: var(--demon-accent)">Supervisor</h3>
+                <h4 style="color: #aaa; margin-bottom: 1rem;">N Cash | Past</h4>
+                <p>Supervised support teams, coached agents, and ensured quality service.</p>
+            </div>
 
-                <article class="project-card stitch-border fade-in">
-                    <div class="project-image"
-                        style="background: linear-gradient(45deg, #1a1a1a, #2a2a2a); display: flex; align-items: center; justify-content: center;">
-                        <i class="ri-service-line" style="font-size: 3rem; color: var(--secondary);"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Customer Support Agent</h3>
-                        <p style="color: var(--secondary); font-size: 0.9rem; margin-bottom: 0.5rem;">Kantipur Jobs
-                            (Ncell)</p>
-                        <p class="project-desc">
-                            • Frontline customer support and issue resolution<br>
-                            • Handling customer inquiries and complaints<br>
-                            • Maintaining high customer satisfaction ratings<br>
-                            • Product knowledge and technical troubleshooting
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Customer Service</span>
-                            <span class="tag">Problem Solving</span>
-                            <span class="tag">Communication</span>
-                        </div>
-                    </div>
-                </article>
+            <!-- Role 4 -->
+            <div class="demon-card">
+                <h3 style="color: var(--demon-accent)">QA Analyst</h3>
+                <h4 style="color: #aaa; margin-bottom: 1rem;">Fonepay | Past</h4>
+                <p>Quality assurance, performance monitoring, and process improvement.</p>
+            </div>
+
+            <!-- Role 5 -->
+            <div class="demon-card">
+                <h3 style="color: var(--demon-accent)">Support Agent</h3>
+                <h4 style="color: #aaa; margin-bottom: 1rem;">Kantipur Jobs | Past</h4>
+                <p>Frontline customer support and issue resolution.</p>
             </div>
         </div>
     </section>
 
-    <section id="certifications" class="section" style="background: var(--bg-surface-transparent);">
-        <div class="container">
-            <h2 class="fade-in">🏆 Certifications & Achievements</h2>
-            <div class="resources-list" style="margin-top: 2rem;">
-                <a href="#" target="_blank" class="resource-card fade-in"
-                    style="text-decoration: none; color: inherit;">
-                    <div class="resource-info">
-                        <div class="file-icon" style="background: rgba(220, 20, 60, 0.1); color: var(--primary);">
-                            <i class="ri-medal-line"></i>
-                        </div>
-                        <div class="resource-details">
-                            <h3>Fundamentals of Digital Marketing</h3>
-                            <span class="resource-meta">Google Digital Garage</span>
-                        </div>
-                    </div>
-                    <span class="tag">Marketing</span>
-                </a>
-
-                <a href="https://www.mygreatlearning.com/certificate/JUZAWPFK?referrer_code=GLNFWCTKTZS_E"
-                    target="_blank" class="resource-card fade-in" style="text-decoration: none; color: inherit;">
-                    <div class="resource-info">
-                        <div class="file-icon" style="background: rgba(30, 144, 255, 0.1); color: var(--secondary);">
-                            <i class="ri-medal-line"></i>
-                        </div>
-                        <div class="resource-details">
-                            <h3>Microsoft Excel Certification</h3>
-                            <span class="resource-meta">Great Learning</span>
-                        </div>
-                    </div>
-                    <span class="tag">Productivity</span>
-                </a>
-
-                <a href="https://www.mygreatlearning.com/certificate/ZQDNLFVK?referrer_code=GLNFWCTKTZS_E"
-                    target="_blank" class="resource-card fade-in" style="text-decoration: none; color: inherit;">
-                    <div class="resource-info">
-                        <div class="file-icon" style="background: rgba(255, 105, 180, 0.1); color: var(--accent);">
-                            <i class="ri-medal-line"></i>
-                        </div>
-                        <div class="resource-details">
-                            <h3>UI/UX Design Certification</h3>
-                            <span class="resource-meta">Great Learning</span>
-                        </div>
-                    </div>
-                    <span class="tag">Design</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
+    <!-- Resources Section -->
     <section id="resources" class="section">
-        <div class="container">
-            <h2 class="fade-in">🏴‍☠️ Treasure Vault - Student Corner</h2>
-            <p class="fade-in" style="color: var(--text-muted); margin-bottom: 2rem;">Navigate the knowledge seas -
-                Access lecture notes and class materials</p>
+        <div class="section-header">
+            <h2>Butterfly Archives</h2>
+        </div>
 
-            <div class="resources-list">
-                <div class="resource-card fade-in">
-                    <div class="resource-info">
-                        <div class="file-icon">
-                            <i class="ri-treasure-map-line"></i>
-                        </div>
-                        <div class="resource-details">
-                            <h3>Class 6</h3>
-                            <span class="resource-meta">Internet • PDF</span>
-                        </div>
-                    </div>
-                    <a href="pdf/Computer ethics class 6.pdf" class="btn btn-outline" target="_blank">Download</a>
-                </div>
-
-                <div class="resource-card fade-in">
-                    <div class="resource-info">
-                        <div class="file-icon">
-                            <i class="ri-archive-line"></i>
-                        </div>
-                        <div class="resource-details">
-                            <h3>Class 7 </h3>
-                            <span class="resource-meta">Cyber Law • PDF</span>
-                        </div>
-                    </div>
-                    <a href="pdf/Cyber Law class 7.pdf" class="btn btn-outline" target="_blank">Download</a>
-                </div>
-
-                <div class="resource-card fade-in">
-                    <div class="resource-info">
-                        <div class="file-icon">
-                            <i class="ri-archive-line"></i>
-                        </div>
-                        <div class="resource-details">
-                            <h3>Class 8 </h3>
-                            <span class="resource-meta">Cyber Law • PDF</span>
-                        </div>
-                    </div>
-                    <a href="pdf/Webpage Design class 8.pdf" class="btn btn-outline" target="_blank">Download</a>
-                </div>
-            </div>
-    </section>
-
-    <section id="contact" class="section" style="background: var(--glass-bg); margin-top: 4rem;">
-        <div class="container" style="text-align: center;">
-            <h2 class="fade-in">Get In Touch</h2>
-            <p class="fade-in" style="color: var(--text-muted); margin-bottom: 2rem;">Available for commissions and
-                collaborations.</p>
-
-            <div class="fade-in" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                <a href="tel:+9779861899728" class="btn btn-primary">
-                    <i class="ri-phone-line"></i> +977 9861899728
-                </a>
-                <a href="mailto:info.arunkarki@gmail.com" class="btn btn-outline">
-                    <i class="ri-mail-line"></i> Email Me
-                </a>
+        <div class="archives-grid">
+            <!-- PDF 1 -->
+            <div class="archive-scroll">
+                <i class="ri-file-text-fill archive-icon"></i>
+                <h3>Computer Ethics</h3>
+                <p style="color: #aaa;">Class 6</p>
+                <a href="pdf/Computer%20ethics%20class%206.pdf" target="_blank" class="btn-butterfly">Retrieve</a>
             </div>
 
-            <div class="social-links fade-in">
-                <a href="https://www.linkedin.com/in/arun-karki-02861a229/" target="_blank" class="social-link"
-                    title="LinkedIn">
-                    <i class="ri-linkedin-fill"></i>
-                </a>
-                <a href="https://www.facebook.com/qo88xnzxio" target="_blank" class="social-link" title="Facebook">
-                    <i class="ri-facebook-fill"></i>
-                </a>
-                <a href="#" class="social-link" title="Twitter / X">
-                    <i class="ri-twitter-x-line"></i>
-                </a>
-                <a href="https://www.instagram.com/nura.ikrak/" target="_blank" class="social-link" title="Instagram">
-                    <i class="ri-instagram-line"></i>
-                </a>
+            <!-- PDF 2 -->
+            <div class="archive-scroll">
+                <i class="ri-file-shield-fill archive-icon"></i>
+                <h3>Cyber Law</h3>
+                <p style="color: #aaa;">Class 7</p>
+                <a href="pdf/Cyber%20Law%20class%207.pdf" target="_blank" class="btn-butterfly">Retrieve</a>
+            </div>
+
+            <!-- PDF 3 -->
+            <div class="archive-scroll">
+                <i class="ri-brush-fill archive-icon"></i>
+                <h3>MS Paint</h3>
+                <p style="color: #aaa;">Class 6</p>
+                <a href="pdf/MS%20Paint%20class%206.pdf" target="_blank" class="btn-butterfly">Retrieve</a>
+            </div>
+
+            <!-- PDF 4 -->
+            <div class="archive-scroll">
+                <i class="ri-code-s-slash-fill archive-icon"></i>
+                <h3>Web Design</h3>
+                <p style="color: #aaa;">Class 8</p>
+                <a href="pdf/Webpage%20Design%20class%208.pdf" target="_blank" class="btn-butterfly">Retrieve</a>
+            </div>
+
+            <!-- PDF 5 -->
+            <div class="archive-scroll">
+                <i class="ri-bug-fill archive-icon"></i>
+                <h3>Virus Guide</h3>
+                <p style="color: #aaa;">Class 6</p>
+                <a href="pdf/computer%20virus%20class%206.pdf" target="_blank" class="btn-butterfly">Retrieve</a>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="container" style="text-align: center;">
-            <p>&copy; 2025 Arun Karki. All rights reserved.</p>
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="margin-bottom: 100px;">
+        <div class="section-header">
+            <h2>Send Kasugai Crow</h2>
         </div>
-    </footer>
+
+        <div class="contact-crow">
+            <div class="crow-icons">
+                <a href="mailto:info.arunkarki@gmail.com" title="Email"><i class="ri-mail-send-fill"></i></a>
+                <a href="tel:+9779861899728" title="Phone"><i class="ri-phone-fill"></i></a>
+                <a href="https://www.linkedin.com/in/arun-karki-02861a229/" target="_blank" title="LinkedIn"><i
+                        class="ri-linkedin-fill"></i></a>
+                <a href="https://www.instagram.com/arunkarki1023/" target="_blank" title="Instagram"><i
+                        class="ri-instagram-fill"></i></a>
+                <a href="https://www.facebook.com/arunkarki1023" target="_blank" title="Facebook"><i
+                        class="ri-facebook-fill"></i></a>
+            </div>
+            <p style="color: #aaa;">info.arunkarki@gmail.com</p>
+        </div>
+    </section>
+
+    <!-- Bottom Navigation Dock -->
+    <nav class="demon-dock">
+        <div class="dock-container">
+            <a href="#home" class="dock-item" title="Home"><i class="ri-home-4-fill"></i></a>
+            <a href="#about" class="dock-item" title="About"><i class="ri-user-3-fill"></i></a>
+            <a href="#certifications" class="dock-item" title="Rank"><i class="ri-medal-fill"></i></a>
+            <a href="#experience" class="dock-item" title="Missions"><i class="ri-map-pin-time-fill"></i></a>
+            <a href="#resources" class="dock-item" title="Archives"><i class="ri-book-read-fill"></i></a>
+            <a href="#contact" class="dock-item" title="Contact"><i class="ri-chat-voice-fill"></i></a>
+        </div>
+    </nav>
 
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,19 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <filter id="glow">
+        <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+        <feMerge>
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+    </filter>
+    <!-- Wisteria petals (scaled up) -->
+    <ellipse cx="12" cy="18" rx="5" ry="6" fill="#A45EE5" opacity="0.9" filter="url(#glow)"/>
+    <ellipse cx="18" cy="15" rx="5" ry="6" fill="#C8A2C8" opacity="0.9" filter="url(#glow)"/>
+    <ellipse cx="24" cy="18" rx="5" ry="6" fill="#A45EE5" opacity="0.9" filter="url(#glow)"/>
+    <ellipse cx="15" cy="24" rx="4" ry="5" fill="#9B4FD8" opacity="0.8" filter="url(#glow)"/>
+    <ellipse cx="21" cy="24" rx="4" ry="5" fill="#B88FD8" opacity="0.8" filter="url(#glow)"/>
+    <!-- Stem -->
+    <line x1="18" y1="27" x2="18" y2="42" stroke="#6B8E6B" stroke-width="2" opacity="0.7"/>
+    <!-- Pointer tip -->
+    <circle cx="3" cy="3" r="2" fill="#FFD700"/>
+</svg>

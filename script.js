@@ -1,135 +1,196 @@
-/*
- * Modern Portfolio & Resource Hub - Interaction Logic
- */
-
 document.addEventListener('DOMContentLoaded', () => {
     initScrollAnimations();
-    initHeaderScroll();
-    initSakuraAnimation();
-    initMobileMenu();
+    initWisteriaParticles(); // Demon Slayer Animation
+    initGlitchEffect();
+    initWaterBreathing(); // New
+    initSwordSlash(); // New
 });
 
-/**
- * Initialize Intersection Observer for fade-in animations
- */
+/* --- Scroll Animations --- */
 function initScrollAnimations() {
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target); // Only animate once
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0) scale(1)';
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    const animatedElements = document.querySelectorAll('.fade-in');
-    animatedElements.forEach(el => observer.observe(el));
+    const targets = document.querySelectorAll('.demon-card, .mission-card, .archive-scroll, .contact-crow, .hero-content');
 
-    // Smooth Scroll for Navigation Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-
-                // Update active state
-                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
-            }
-        });
+    targets.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)';
+        observer.observe(el);
     });
-}
 
-/**
- * Header Scroll Effect
- */
-function initHeaderScroll() {
-    const header = document.querySelector('.header');
+    // Active Nav Link Logic
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.dock-item');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 20) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.style.color = 'var(--text-light)';
+            if (link.getAttribute('href').includes(current)) {
+                link.style.color = 'var(--nezuko-pink)';
+            }
+        });
     });
 }
 
-/**
- * Mobile Menu Toggle
- */
-function initMobileMenu() {
-    const menuToggle = document.getElementById('mobile-menu');
-    const navContainer = document.querySelector('.nav-container');
-    const navLinks = document.querySelectorAll('.nav-link');
+/* --- Wisteria Particles (Canvas) --- */
+function initWisteriaParticles() {
+    const canvas = document.getElementById('wisteriaCanvas');
+    if (!canvas) return;
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
-            navContainer.classList.toggle('active');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    class Petal {
+        constructor() {
+            this.reset(true);
+        }
+
+        reset(initial = false) {
+            this.x = Math.random() * width;
+            this.y = initial ? Math.random() * height : -10;
+            this.vx = (Math.random() - 0.5) * 1; // Drift left/right
+            this.vy = Math.random() * 1.5 + 0.5; // Fall speed
+            this.size = Math.random() * 3 + 2;
+            this.rotation = Math.random() * 360;
+            this.rotationSpeed = (Math.random() - 0.5) * 2;
+            this.color = Math.random() > 0.5 ? '255, 159, 243' : '155, 89, 182'; // Pink or Purple
+            this.alpha = Math.random() * 0.6 + 0.2;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+            this.rotation += this.rotationSpeed;
+
+            // Sway motion
+            this.x += Math.sin(this.y * 0.01) * 0.5;
+
+            if (this.y > height + 10) {
+                this.reset();
+            }
+        }
+
+        draw() {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.rotation * Math.PI / 180);
+            ctx.fillStyle = `rgba(${this.color}, ${this.alpha})`;
+            ctx.beginPath();
+            // Draw a simple petal shape
+            ctx.ellipse(0, 0, this.size, this.size * 2, 0, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+    }
+
+    // Create particles
+    for (let i = 0; i < 100; i++) {
+        particles.push(new Petal());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        particles.forEach(p => {
+            p.update();
+            p.draw();
         });
 
-        // Close menu when a link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navContainer.classList.remove('active');
-            });
-        });
+        requestAnimationFrame(animate);
     }
+
+    animate();
 }
 
-/**
- * Initialize Sakura Petal Animation
- */
-function initSakuraAnimation() {
-    const container = document.createElement('div');
-    container.id = 'sakura-container';
-    document.body.prepend(container);
+/* --- Glitch Effect for Hero Title --- */
+function initGlitchEffect() {
+    const glitchText = document.querySelector('.breath-title');
+    if (!glitchText) return;
 
-    const petalCount = 30; // Number of petals
+    const originalText = glitchText.innerText;
+    const chars = '水炎雷獣蟲霞風恋蛇岩音'; // Kanji for breathing styles
 
-    for (let i = 0; i < petalCount; i++) {
-        createPetal(container);
-    }
+    glitchText.addEventListener('mouseover', () => {
+        let iterations = 0;
+        const interval = setInterval(() => {
+            glitchText.innerText = originalText
+                .split('')
+                .map((letter, index) => {
+                    if (index < iterations) {
+                        return originalText[index];
+                    }
+                    return chars[Math.floor(Math.random() * chars.length)];
+                })
+                .join('');
+
+            if (iterations >= originalText.length) {
+                clearInterval(interval);
+            }
+
+            iterations += 1 / 3;
+        }, 50);
+    });
 }
 
-function createPetal(container) {
-    const petal = document.createElement('div');
-    petal.classList.add('sakura');
+/* --- Water Breathing Trail --- */
+function initWaterBreathing() {
+    document.addEventListener('mousemove', (e) => {
+        if (Math.random() > 0.4) return; // Limit particle density
 
-    // Randomize size
-    const size = Math.random() * 10 + 10; // 10px to 20px
-    petal.style.width = `${size}px`;
-    petal.style.height = `${size}px`;
+        const trail = document.createElement('div');
+        trail.classList.add('water-trail');
+        trail.style.left = `${e.clientX}px`;
+        trail.style.top = `${e.clientY}px`;
+        document.body.appendChild(trail);
 
-    // Randomize position
-    petal.style.left = `${Math.random() * 100}vw`;
+        setTimeout(() => {
+            trail.remove();
+        }, 800);
+    });
+}
 
-    // Randomize animation duration and delay
-    const duration = Math.random() * 5 + 5; // 5s to 10s
-    const delay = Math.random() * 5;
+/* --- Sword Slash Effect --- */
+function initSwordSlash() {
+    document.addEventListener('click', (e) => {
+        const slash = document.createElement('div');
+        slash.classList.add('sword-slash');
+        slash.style.left = `${e.clientX}px`;
+        slash.style.top = `${e.clientY}px`;
 
-    petal.style.animationDuration = `${duration}s, ${Math.random() * 2 + 2}s`; // Fall duration, Sway duration
-    petal.style.animationDelay = `-${delay}s, -${Math.random()}s`;
+        // Random rotation for variety
+        const angle = Math.random() * 360;
+        slash.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
 
-    container.appendChild(petal);
+        document.body.appendChild(slash);
 
-    // Reset petal when it falls out of view to keep DOM light
-    petal.addEventListener('animationiteration', () => {
-        petal.style.left = `${Math.random() * 100}vw`;
+        setTimeout(() => {
+            slash.remove();
+        }, 400);
     });
 }

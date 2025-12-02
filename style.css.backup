@@ -1,0 +1,963 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Cinzel:wght@400;700;900&display=swap');
+
+:root {
+    /* Demon Slayer Theme Palette */
+    --primary: #8B0000;
+    /* Deep Crimson - Tanjiro's determination */
+    --primary-glow: #DC143C;
+    --secondary: #9370DB;
+    /* Wisteria Purple - Demon Slayer Corps */
+    --accent: #FFD700;
+    /* Thunder Gold - Zenitsu's lightning */
+    --water-blue: #4169E1;
+    /* Water Breathing */
+    --flame-orange: #FF4500;
+    /* Flame Breathing */
+
+    /* Text Colors - Light for Dark Mode */
+    --text-main: #F5F5F5;
+    /* Bright White */
+    --text-muted: #B8B8B8;
+    /* Muted Gray */
+
+    /* Backgrounds */
+    --bg-body: #0D0D1A;
+    /* Deep Night */
+    --bg-surface: rgba(25, 15, 35, 0.85);
+    --bg-surface-transparent: rgba(25, 15, 35, 0.5);
+
+    /* Layout & Spacing */
+    --header-height: 80px;
+    --container-width: 1200px;
+
+    /* Effects */
+    --glass-bg: rgba(20, 10, 30, 0.75);
+    /* Dark Purple Glass */
+    --glass-backdrop: blur(12px);
+    --glass-border: 1px solid rgba(147, 112, 219, 0.3);
+    --transition-fast: 0.2s ease;
+    --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Fonts */
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Noto Serif JP', serif;
+}
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Atmospheric Background Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(147, 112, 219, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(65, 105, 225, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--text-main);
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-fast);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Utilities */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 4s ease infinite;
+    background-size: 200% 200%;
+}
+
+.font-normal {
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
+}
+
+@keyframes gradient-shift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Water Breathing Effect */
+@keyframes water-ripple {
+    0% {
+        box-shadow: 0 0 0 0 rgba(65, 105, 225, 0.7),
+            0 0 0 10px rgba(65, 105, 225, 0.5),
+            0 0 0 20px rgba(65, 105, 225, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 0 0 10px rgba(65, 105, 225, 0.5),
+            0 0 0 20px rgba(65, 105, 225, 0.3),
+            0 0 0 30px rgba(65, 105, 225, 0);
+    }
+}
+
+/* Thunder Breathing Effect */
+@keyframes thunder-flash {
+
+    0%,
+    100% {
+        filter: brightness(1);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0);
+    }
+
+    50% {
+        filter: brightness(1.3);
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.8),
+            0 0 60px rgba(255, 215, 0, 0.5);
+    }
+}
+
+/* Scroll Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.fade-in:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.fade-in:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.fade-in:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.fade-in:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+/* Header - Floating Glass Pill */
+.header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    height: 70px;
+    background: rgba(13, 13, 26, 0.9);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(147, 112, 219, 0.3);
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(147, 112, 219, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    transition: all 0.4s ease;
+}
+
+.header.scrolled {
+    top: 10px;
+    width: 95%;
+    background: rgba(13, 13, 26, 0.95);
+    box-shadow: 0 10px 40px rgba(147, 112, 219, 0.3);
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    transition: var(--transition-smooth);
+    text-shadow: 0 0 10px rgba(147, 112, 219, 0.5);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 15px var(--secondary));
+}
+
+/* Desktop Navigation */
+.nav-container {
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    font-weight: 600;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: var(--transition-fast);
+    font-family: var(--font-heading);
+    letter-spacing: 0.5px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--secondary);
+    transform: translateY(-2px);
+    text-shadow: 0 0 10px rgba(147, 112, 219, 0.6);
+}
+
+/* Mobile Menu Toggle - Hidden on Desktop */
+.menu-toggle {
+    display: none;
+}
+
+/* Buttons */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    font-family: var(--font-heading);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), #B22222);
+    color: white;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+    border: 2px solid rgba(220, 20, 60, 0.5);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(139, 0, 0, 0.6);
+}
+
+.btn-outline {
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    animation: slideInLeft 1s ease;
+    text-shadow: 0 0 20px rgba(147, 112, 219, 0.4);
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Demon Slayer Corps ID Card */
+.wanted-poster {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 2rem;
+    border: 3px solid var(--secondary);
+    box-shadow: 0 0 30px rgba(147, 112, 219, 0.5),
+        0 15px 40px rgba(0, 0, 0, 0.6),
+        inset 0 0 50px rgba(147, 112, 219, 0.1);
+    width: 350px;
+    text-align: center;
+    position: relative;
+    transform: rotate(-2deg);
+    transition: var(--transition-smooth);
+    margin: 0 auto;
+}
+
+.wanted-poster::before {
+    content: '鬼殺隊';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: var(--secondary);
+    opacity: 0.3;
+    font-weight: 900;
+}
+
+.wanted-poster:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 0 50px rgba(147, 112, 219, 0.8),
+        0 20px 50px rgba(0, 0, 0, 0.7);
+    animation: water-ripple 2s ease-in-out infinite;
+}
+
+.poster-top {
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 1rem;
+}
+
+.wanted-text {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--secondary);
+    line-height: 1;
+    letter-spacing: 0.3rem;
+    text-shadow: 0 0 20px rgba(147, 112, 219, 0.8);
+}
+
+.dead-alive {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--accent);
+    margin-top: 0.5rem;
+    letter-spacing: 0.2rem;
+}
+
+.poster-image-container {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.2), rgba(147, 112, 219, 0.2));
+    position: relative;
+}
+
+.poster-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg,
+            transparent 48%,
+            rgba(147, 112, 219, 0.1) 50%,
+            transparent 52%);
+    background-size: 10px 10px;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(1.1) saturate(1.2);
+}
+
+.poster-bottom {
+    border-top: 2px solid var(--secondary);
+    padding-top: 1rem;
+}
+
+.poster-name {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-shadow: 0 0 10px rgba(147, 112, 219, 0.6);
+}
+
+.poster-bounty {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0.5rem 0;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+.marine-text {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 900;
+    color: var(--secondary);
+    letter-spacing: 0.2rem;
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.stat-card {
+    background: var(--glass-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid var(--secondary);
+    box-shadow: 0 0 20px rgba(147, 112, 219, 0.3);
+    transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(147, 112, 219, 0.5);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background: rgba(147, 112, 219, 0.2);
+    color: var(--text-main);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(147, 112, 219, 0.4);
+    transition: var(--transition-fast);
+}
+
+.tag:hover {
+    background: rgba(147, 112, 219, 0.3);
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* Timeline Layout for Experience - Breathing Styles */
+.portfolio-grid {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 2rem 0;
+}
+
+/* Central Line - Nichirin Blade */
+.portfolio-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            var(--water-blue) 0%,
+            var(--secondary) 25%,
+            var(--primary) 50%,
+            var(--accent) 75%,
+            var(--flame-orange) 100%);
+    transform: translateX(-50%);
+    z-index: 0;
+    box-shadow: 0 0 10px rgba(147, 112, 219, 0.5);
+}
+
+.project-card {
+    width: 45%;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, rgba(25, 15, 35, 0.9), rgba(13, 13, 26, 0.9));
+    border: 2px solid var(--secondary);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 20px rgba(147, 112, 219, 0.3),
+        5px 5px 0 rgba(147, 112, 219, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Alternating Cards */
+.project-card:nth-child(odd) {
+    align-self: flex-start;
+}
+
+.project-card:nth-child(even) {
+    align-self: flex-end;
+}
+
+/* Breathing Style Dots */
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    width: 24px;
+    height: 24px;
+    background: var(--primary);
+    border: 4px solid var(--bg-body);
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px var(--secondary),
+        0 0 20px rgba(147, 112, 219, 0.8);
+    z-index: 2;
+}
+
+.project-card:nth-child(odd)::after {
+    right: -3.8rem;
+}
+
+.project-card:nth-child(even)::after {
+    left: -3.8rem;
+}
+
+.project-card:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 0 0 30px rgba(147, 112, 219, 0.5),
+        10px 10px 0 rgba(147, 112, 219, 0.3);
+}
+
+/* Different breathing styles for each card */
+.project-card:nth-child(1) {
+    border-color: var(--water-blue);
+}
+
+.project-card:nth-child(1)::after {
+    background: var(--water-blue);
+}
+
+.project-card:nth-child(2) {
+    border-color: var(--accent);
+}
+
+.project-card:nth-child(2)::after {
+    background: var(--accent);
+}
+
+.project-card:nth-child(3) {
+    border-color: var(--flame-orange);
+}
+
+.project-card:nth-child(3)::after {
+    background: var(--flame-orange);
+}
+
+.project-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border: 2px solid var(--secondary);
+}
+
+.project-image i {
+    transition: var(--transition-smooth);
+}
+
+.project-card:hover .project-image i {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.project-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.project-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+/* Resources - Corps Archives */
+.resources-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.resource-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-backdrop);
+    border: 2px solid var(--secondary);
+    padding: 1.5rem;
+    border-radius: 15px;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    box-shadow: 0 0 15px rgba(147, 112, 219, 0.2);
+}
+
+.resource-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(147, 112, 219, 0.4);
+    border-color: var(--accent);
+}
+
+.resource-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(147, 112, 219, 0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+}
+
+.resource-details h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.resource-meta {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.social-link {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--glass-bg);
+    border: 2px solid var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    transition: var(--transition-smooth);
+}
+
+.social-link:hover {
+    background: var(--secondary);
+    border-color: var(--accent);
+    transform: translateY(-5px) rotate(360deg);
+    box-shadow: 0 10px 30px rgba(147, 112, 219, 0.6);
+}
+
+/* Footer */
+.footer {
+    padding: 2rem 0;
+    border-top: 2px solid rgba(147, 112, 219, 0.3);
+    background: rgba(13, 13, 26, 0.9);
+    backdrop-filter: var(--glass-backdrop);
+}
+
+.footer p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Wisteria Petal Animation */
+#wisteria-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.wisteria {
+    position: absolute;
+    top: -10%;
+    background: linear-gradient(135deg, #9370DB, #BA55D3);
+    border-radius: 50% 0 50% 0;
+    opacity: 0.6;
+    animation: fall linear infinite, sway ease-in-out infinite;
+    box-shadow: 0 0 10px rgba(147, 112, 219, 0.5);
+}
+
+@keyframes fall {
+    to {
+        top: 110%;
+    }
+}
+
+@keyframes sway {
+
+    0%,
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(50px) rotate(45deg);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        width: 95%;
+        top: 10px;
+    }
+
+    .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .wanted-poster {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Timeline Collapse */
+    .portfolio-grid {
+        padding-left: 2rem;
+    }
+
+    .portfolio-grid::before {
+        left: 0;
+    }
+
+    .project-card {
+        width: 100%;
+        align-self: flex-start !important;
+    }
+
+    .project-card:nth-child(odd)::after {
+        right: auto;
+        left: -3.8rem;
+    }
+
+    .desktop-actions {
+        display: none !important;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1001;
+    }
+
+    .menu-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background: var(--secondary);
+        transition: var(--transition-smooth);
+        border-radius: 2px;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .nav-container {
+        position: fixed;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-20px);
+        width: 90%;
+        background: rgba(13, 13, 26, 0.98);
+        border: 2px solid var(--secondary);
+        border-radius: 20px;
+        padding: 2rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition-smooth);
+        box-shadow: 0 10px 40px rgba(147, 112, 219, 0.4);
+    }
+
+    .nav-container.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
