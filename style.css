@@ -90,6 +90,7 @@ h4 {
 
 .text-gradient {
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -632,5 +633,85 @@ h4 {
     .image-card {
         width: 300px;
         height: 380px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 40px 20px;
+    }
+
+    .contact-email {
+        font-size: 1.2rem;
+    }
+
+    .dock-nav {
+        bottom: 20px;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .dock-container {
+        justify-content: space-around;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .vertical-divider {
+        width: 40px;
+        height: 1px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .image-card {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 3/4;
+    }
+
+    .float-card {
+        display: none;
+    }
+
+    .dock-item {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
     }
 }
