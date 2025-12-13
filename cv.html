@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun Karki - CV</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --text-dark: #1F2937;
+            --text-light: #6B7280;
+            --bg-gray: #F9FAFB;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #555;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .cv-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .header-info h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-info h2 {
+            font-size: 16px;
+            color: var(--primary);
+            font-weight: 500;
+            margin-top: 5px;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+        }
+
+        /* Content Grid */
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* Sections */
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            color: var(--text-dark);
+            border-bottom: 1px solid #E5E7EB;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            margin-top: 20px;
+            text-transform: uppercase;
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        /* Experience Item */
+        .exp-item {
+            margin-bottom: 20px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .exp-company {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .exp-date {
+            font-size: 12px;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
+        .exp-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* Sidebar Items */
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            font-size: 12px;
+            color: var(--text-dark);
+            background: var(--bg-gray);
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin-bottom: 6px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .cert-item {
+            margin-bottom: 15px;
+        }
+
+        .cert-title {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .cert-issuer {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        /* Profile Summary */
+        .summary {
+            font-size: 13px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .cv-page {
+                box-shadow: none;
+                width: 100%;
+                height: auto;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-page">
+        <header>
+            <div class="header-info">
+                <h1>Arun Karki</h1>
+                <h2>Educator & Novelist | AI Coder</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>info.arunkarki@gmail.com</span>
+                    <i class="ri-mail-send-line"></i>
+                </div>
+                <div class="contact-item">
+                    <span>Kathmandu, Nepal</span>
+                    <i class="ri-map-pin-line"></i>
+                </div>
+                <div class="contact-item">
+                    <span>arunkarki1023.com.np</span>
+                    <i class="ri-global-line"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="summary">
+            Passionate Educator and Novelist with over 5 years of experience bridging the gap between technical logic
+            and imaginative storytelling. Proven track record in mentoring students, leading creative projects, and
+            ensuring quality assurance in tech environments. Author of three published novels.
+        </div>
+
+        <div class="cv-grid">
+            <!-- Main Column -->
+            <div class="main-col">
+                <h3 class="section-title">Professional Experience</h3>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Educator</div>
+                            <div class="exp-company">Kirti Secondary School</div>
+                        </div>
+                        <div class="exp-date">Past</div>
+                    </div>
+                    <p class="exp-desc">Taught English and creative writing. Mentored students and led educational
+                        projects, fostering a creative learning environment.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Novelist</div>
+                            <div class="exp-company">Independent</div>
+                        </div>
+                        <div class="exp-date">Present</div>
+                    </div>
+                    <p class="exp-desc">Author of three short novels exploring themes of transformation. Managed
+                        self-publishing and creative direction.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Supervisor</div>
+                            <div class="exp-company">N Cash</div>
+                        </div>
+                        <div class="exp-date">Past</div>
+                    </div>
+                    <p class="exp-desc">Supervised support teams, coached agents, and ensured high-quality service
+                        delivery.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">QA Analyst</div>
+                            <div class="exp-company">Fonepay</div>
+                        </div>
+                        <div class="exp-date">Past</div>
+                    </div>
+                    <p class="exp-desc">Conducted quality assurance, performance monitoring, and process improvement for
+                        financial technology products.</p>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <div>
+                            <div class="exp-role">Support Agent</div>
+                            <div class="exp-company">Kantipur Jobs</div>
+                        </div>
+                        <div class="exp-date">Past</div>
+                    </div>
+                    <p class="exp-desc">Provided frontline customer support and issue resolution.</p>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="side-col">
+                <h3 class="section-title">Skills</h3>
+                <ul class="skill-list">
+                    <li class="skill-item">Creative Writing</li>
+                    <li class="skill-item">Teaching & Mentoring</li>
+                    <li class="skill-item">Web Design (HTML/CSS)</li>
+                    <li class="skill-item">QA Analysis</li>
+                    <li class="skill-item">Digital Marketing</li>
+                    <li class="skill-item">Team Leadership</li>
+                </ul>
+
+                <h3 class="section-title">Certifications</h3>
+                <div class="cert-item">
+                    <div class="cert-title">Digital Marketing</div>
+                    <div class="cert-issuer">Google Digital Garage</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">Excel Expert</div>
+                    <div class="cert-issuer">Great Learning</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">UI/UX Design</div>
+                    <div class="cert-issuer">Great Learning</div>
+                </div>
+
+                <h3 class="section-title">Education</h3>
+                <div class="cert-item">
+                    <div class="cert-title">High School (+2)</div>
+                    <div class="cert-issuer">Omega International College</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Auto-print prompt when opened
+        window.onload = function () {
+            // setTimeout(() => window.print(), 1000);
+        }
+    </script>
+</body>
+
+</html>
