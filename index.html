@@ -9,7 +9,12 @@
     <link rel="icon" type="image/png" href="lim.jpg">
 </head>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+</head>
+
 <body>
+    <!-- 3D Background Container -->
+    <div id="canvas-container"></div>
 
     <!-- Fixed Top Button -->
 
@@ -123,39 +128,77 @@
             <span class="section-label">Trajectory</span>
             <div class="story-content fade-in delay-1">
                 <div class="trajectory-list">
-                    <div class="trajectory-item">
-                        <span class="traj-role">Novelist</span>
-                        <span class="traj-company">Independent</span>
-                        <p class="traj-desc">Exploring themes of transformation through fiction. Author of three
-                            short
-                            novels.</p>
+                    <!-- 1. Novelist -->
+                    <div class="trajectory-item flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="traj-period present">Present</span>
+                                <h4 class="traj-role">Novelist</h4>
+                                <span class="traj-company">Independent</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <p class="traj-desc">Exploring themes of transformation through fiction. Author of three
+                                    short novels.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="trajectory-item">
-                        <span class="traj-role">Educator</span>
-                        <span class="traj-company">Kirti Secondary School</span>
-                        <p class="traj-desc">Teaching English and Creative Writing. Helping students validify their
-                            own
-                            voices.</p>
+                    <!-- 2. Educator -->
+                    <div class="trajectory-item flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="traj-period past">Past</span>
+                                <h4 class="traj-role">Educator</h4>
+                                <span class="traj-company">Kirti Secondary School</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <p class="traj-desc">Teaching English and Creative Writing. Helping students validify
+                                    their own voices.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="trajectory-item">
-                        <span class="traj-role">Supervisor</span>
-                        <span class="traj-company">N Cash</span>
-                        <p class="traj-desc">Supervised support teams, coached agents, and ensured quality service
-                            delivery.</p>
+                    <!-- 3. Supervisor -->
+                    <div class="trajectory-item flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="traj-period past">Past</span>
+                                <h4 class="traj-role">Supervisor</h4>
+                                <span class="traj-company">N Cash</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <p class="traj-desc">Supervised support teams, coached agents, and ensured quality
+                                    service delivery.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="trajectory-item">
-                        <span class="traj-role">Quality Officer</span>
-                        <span class="traj-company">Fonepay</span>
-                        <p class="traj-desc">Ensuring quality and refining processes in digital payments.</p>
+                    <!-- 4. Quality Officer -->
+                    <div class="trajectory-item flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="traj-period past">Past</span>
+                                <h4 class="traj-role">Quality Officer</h4>
+                                <span class="traj-company">Fonepay</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <p class="traj-desc">Ensuring quality and refining processes in digital payments.</p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="trajectory-item">
-                        <span class="traj-role">Support Agent</span>
-                        <span class="traj-company">Kantipur Jobs</span>
-                        <p class="traj-desc">Frontline customer support and complex issue resolution.</p>
+                    <!-- 5. Support Agent -->
+                    <div class="trajectory-item flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span class="traj-period past">Past</span>
+                                <h4 class="traj-role">Support Agent</h4>
+                                <span class="traj-company">Kantipur Jobs</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <p class="traj-desc">Frontline customer support and complex issue resolution.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -186,53 +229,64 @@
 
     <!-- Contact -->
     <section id="contact">
-        <span class="section-label">Say Hello</span>
         <div class="story-content fade-in delay-2">
-            <p>I’m always open to a quiet conversation about code, books, or the future of creativity.</p>
 
-            <div class="contact-links">
-                <!-- Mail: Tanjiro (Green) -->
-                <a href="mailto:info.arunkarki@gmail.com" class="icon-link icon-tanjiro" title="Email">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                        </path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
+            <div class="glass-card contact-card">
+                <h3>Let's Create Together</h3>
+                <p>I’m always open to a quiet conversation about code, books, or the future of creativity.</p>
+
+                <!-- Simple Email Link -->
+                <a href="mailto:info.arunkarki@gmail.com" class="email-display">
+                    <span class="email-text">info.arunkarki@gmail.com</span>
                 </a>
 
-                <!-- LinkedIn: Zenitsu (Yellow/Thunder) -->
-                <a href="https://www.linkedin.com/in/arun-karki-02861a229/" target="_blank"
-                    class="icon-link icon-zenitsu" title="LinkedIn">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                        </path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                </a>
+                <div class="contact-divider"><span>OR FIND ME ON</span></div>
 
-                <!-- Instagram: Nezuko (Pink/Demon) -->
-                <a href="https://www.instagram.com/nura.ikrak/" target="_blank" class="icon-link icon-nezuko"
-                    title="Instagram">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
+                <div class="contact-links">
+                    <!-- Mail: Tanjiro (Green) -->
+                    <a href="mailto:info.arunkarki@gmail.com" class="icon-link icon-tanjiro" title="Send Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </a>
 
-                <!-- Facebook: Inosuke (Blue/Beast) -->
-                <a href="https://www.facebook.com/qo88xnzxio" target="_blank" class="icon-link icon-inosuke"
-                    title="Facebook">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                    </svg>
-                </a>
+                    <!-- LinkedIn: Zenitsu (Yellow/Thunder) -->
+                    <a href="https://www.linkedin.com/in/arun-karki-02861a229/" target="_blank"
+                        class="icon-link icon-zenitsu" title="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+
+                    <!-- Instagram: Nezuko (Pink/Demon) -->
+                    <a href="https://www.instagram.com/nura.ikrak/" target="_blank" class="icon-link icon-nezuko"
+                        title="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+
+                    <!-- Facebook: Inosuke (Blue/Beast) -->
+                    <a href="https://www.facebook.com/qo88xnzxio" target="_blank" class="icon-link icon-inosuke"
+                        title="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -267,13 +321,7 @@
                 </svg>
             </a>
 
-            <a href="cv.html" target="_blank" class="nav-item" data-label="CV / Resume">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path>
-                    <path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"></path>
-                </svg>
-            </a>
+
 
             <a href="#contact" class="nav-item" data-label="Contact">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
