@@ -5,139 +5,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arun Karki | Creative Technologist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600;700;800&family=Karma:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="lim.jpg">
-</head>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 
 <body>
-    <!-- 3D Background Container -->
+    <!-- Reactive Canvas Background -->
     <div id="canvas-container"></div>
 
-    <!-- Fixed Top Button -->
-
-    <!-- Fixed Top Button -->
-    <div class="header-cta">
-        <a href="cv.html" target="_blank" class="btn-download btn-sm">
-            Download CV
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-        </a>
-    </div>
-
+    <!-- Main Container -->
     <div class="container">
 
-        <!-- Clean Background - No Particles Needed for Jolly Theme -->
-
-
-        <!-- Hero -->
+        <!-- Hero Section -->
         <section class="hero" id="home">
-            <div class="fade-in hero-grid">
-                <div class="hero-content">
-                    <p class="intro-text">
-                        I build with AI.<br>
-                        I write to understand.<br>
-                        I teach what I learn.
-                    </p>
+            <div class="hero-grid">
+                <div class="hero-content fade-in">
+                    <span class="role-tag">AI Co-Creator • Educator</span>
                     <h1>Arun Karki</h1>
-                    <span class="role-tag">AI Co-Creator • Writer • Educator</span>
+                    <p class="intro-text">
+                        Bridging the gap between human creativity and artificial intelligence.<br>
+                        I build tools, write stories, and teach what I learn.
+                    </p>
                 </div>
-                <div class="hero-image-container">
+                <!-- Hero Image with Diamond Frame (CSS handled) -->
+                <div class="hero-img-container fade-in">
                     <img src="lim.jpg" alt="Arun Karki" class="hero-img">
                 </div>
             </div>
         </section>
 
-        <!-- About / Story -->
-        <section id="about">
-            <span class="section-label">My Story</span>
-            <div class="story-content fade-in delay-1">
-                <p>
-                    I've always been drawn to the space where logic meets creativity. My journey started in
-                    classrooms,
-                    teaching English and creative writing, trying to help others find their voice.
-                </p>
-                <p>
-                    Eventually, I found my own new voice in code and AI. I realized that technology doesn't have to
-                    be
-                    cold;
-                    it can be a tool for connection and expression. Now, I spend my days exploring large language
-                    models,
-                    crafting prompts, and building digital tools that feel natural and useful.
-                </p>
-                <p>
-                    I chose this path not for the hype, but for the quiet satisfaction of making things work.
-                </p>
+        <!-- About Section -->
+        <section id="about" class="fade-in">
+            <div class="glass-card tilt-card">
+                <h2>About Me</h2>
+                <div class="section-content">
+                    <p>
+                        I've always been drawn to the space where logic meets creativity. My journey started in
+                        classrooms, teaching Computer Science and English, trying to help others find their voice.
+                    </p>
+                    <p>
+                        Eventually, I found my own new voice in code and AI. I realized that technology doesn't have to
+                        be cold; it can be a tool for connection and expression. Now, I spend my days exploring large
+                        language
+                        models, crafting prompts, and building digital tools that feel natural and useful.
+                    </p>
+                    <p>
+                        I chose this path not for the hype, but for the quiet satisfaction of making things work.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <!-- Work / Projects -->
+        <!-- Trajectory Section -->
+        <section id="experience">
+            <h2>Trajectory</h2>
+            <div class="trajectory-list fade-in">
+                <!-- Educator -->
+                <div class="trajectory-item tilt-card">
+                    <span class="traj-period">Past</span>
+                    <h4 class="traj-role">Educator</h4>
+                    <span class="traj-company">Kirti Secondary School</span>
+                    <p>Teaching Computer Science and English. Helping students validify their own voices.</p>
+                </div>
+                <!-- Supervisor -->
+                <div class="trajectory-item tilt-card">
+                    <span class="traj-period">Past</span>
+                    <h4 class="traj-role">Supervisor</h4>
+                    <span class="traj-company">N Cash</span>
+                    <p>Supervised support teams, coached agents, and ensured quality service delivery.</p>
+                </div>
+                <!-- Quality Officer -->
+                <div class="trajectory-item tilt-card">
+                    <span class="traj-period">Past</span>
+                    <h4 class="traj-role">Quality Officer</h4>
+                    <span class="traj-company">Fonepay</span>
+                    <p>Ensuring quality and refining processes in digital payments.</p>
+                </div>
+                <!-- Support Agent -->
+                <div class="trajectory-item tilt-card">
+                    <span class="traj-period">Past</span>
+                    <h4 class="traj-role">Support Agent</h4>
+                    <span class="traj-company">Kantipur Jobs</span>
+                    <p>Frontline customer support and complex issue resolution.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Section -->
         <section id="work">
-            <span class="section-label">Selected Work</span>
-            <div class="project-list fade-in delay-2">
-
-                <div class="project-item">
+            <h2>Selected Work</h2>
+            <div class="project-list">
+                <div class="project-item tilt-card fade-in">
                     <h3 class="project-title">AI Coding Assistant</h3>
-                    <p class="project-desc">
-                        A personal exploration into agentic workflows. Built to understand how we can collaborate
-                        with machines rather than just command them.
-                    </p>
+                    <p>A personal exploration into agentic workflows. Collaborating with machines.</p>
                 </div>
-
-                <div class="project-item">
+                <div class="project-item tilt-card fade-in">
                     <h3 class="project-title">Novel Writing Workflows</h3>
-                    <p class="project-desc">
-                        Systems designed to assist authors in plotting and character development without losing the
-                        human spark.
-                    </p>
+                    <p>Systems designed to assist authors in plotting without losing the human spark.</p>
                 </div>
-
-                <div class="project-item">
+                <div class="project-item tilt-card fade-in">
                     <h3 class="project-title">Educational Prompts</h3>
-                    <p class="project-desc">
-                        A collection of structured prompts used to teach complex concepts to students in Kirti
-                        Secondary
-                        School.
-                    </p>
+                    <p>Structured prompts used to teach complex concepts to students.</p>
                 </div>
-
-                <div class="project-item">
+                <div class="project-item tilt-card fade-in">
                     <h3 class="project-title">Salvinia Academy Website</h3>
-                    <p class="project-desc">
-                        Designed and developed a modern, responsive website for Salvinia Academy, creating an
-                        engaging online presence for the educational institution.
-                    </p>
+                    <p>Designed and developed a modern, responsive website for Salvinia Academy.</p>
                 </div>
-
-                <div class="project-item">
-                    <h3 class="project-title">Post Design for Kirti School</h3>
-                    <p class="project-desc">
-                        Created visual content and social media posts for Kirti Secondary School, helping to
-                        communicate their educational mission and connect with the community.
-                    </p>
+                <div class="project-item tilt-card fade-in">
+                    <h3 class="project-title">Kirti School Branding</h3>
+                    <p>Created visual content and social media posts, helping to communicate their mission.</p>
                 </div>
-
-                <div class="project-item">
-                    <h3 class="project-title">Post Design for Salvinia Academy</h3>
-                    <p class="project-desc">
-                        Crafted engaging visual materials and promotional content for Salvinia Academy,
-                        establishing a cohesive brand identity across digital platforms.
-                    </p>
-                </div>
-
             </div>
         </section>
 
-        <!-- Skills -->
-        <section id="skills">
-            <span class="section-label">Notes & Skills</span>
-            <div class="skill-tags fade-in delay-3">
+        <!-- Skills Section -->
+        <section id="skills" class="fade-in">
+            <h2>Skills & Notes</h2>
+            <div class="skill-tags">
                 <span class="skill-tag">Prompt Engineering</span>
                 <span class="skill-tag">AI-Based Development</span>
                 <span class="skill-tag">Creative Writing</span>
@@ -147,215 +138,90 @@
             </div>
         </section>
 
-        <!-- Experience / CV -->
-        <section id="experience">
-            <span class="section-label">Trajectory</span>
-            <div class="story-content fade-in delay-1">
-                <div class="trajectory-list">
-                    <!-- 1. Novelist -->
-                    <div class="trajectory-item flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <span class="traj-period present">Present</span>
-                                <h4 class="traj-role">Novelist</h4>
-                                <span class="traj-company">Independent</span>
-                            </div>
-                            <div class="flip-card-back">
-                                <p class="traj-desc">Exploring themes of transformation through fiction. Author of three
-                                    short novels.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. Educator -->
-                    <div class="trajectory-item flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <span class="traj-period past">Past</span>
-                                <h4 class="traj-role">Educator</h4>
-                                <span class="traj-company">Kirti Secondary School</span>
-                            </div>
-                            <div class="flip-card-back">
-                                <p class="traj-desc">Teaching English and Creative Writing. Helping students validify
-                                    their own voices.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. Supervisor -->
-                    <div class="trajectory-item flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <span class="traj-period past">Past</span>
-                                <h4 class="traj-role">Supervisor</h4>
-                                <span class="traj-company">N Cash</span>
-                            </div>
-                            <div class="flip-card-back">
-                                <p class="traj-desc">Supervised support teams, coached agents, and ensured quality
-                                    service delivery.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 4. Quality Officer -->
-                    <div class="trajectory-item flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <span class="traj-period past">Past</span>
-                                <h4 class="traj-role">Quality Officer</h4>
-                                <span class="traj-company">Fonepay</span>
-                            </div>
-                            <div class="flip-card-back">
-                                <p class="traj-desc">Ensuring quality and refining processes in digital payments.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 5. Support Agent -->
-                    <div class="trajectory-item flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <span class="traj-period past">Past</span>
-                                <h4 class="traj-role">Support Agent</h4>
-                                <span class="traj-company">Kantipur Jobs</span>
-                            </div>
-                            <div class="flip-card-back">
-                                <p class="traj-desc">Frontline customer support and complex issue resolution.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    </div>
-    </section>
-
-    <!-- Certifications -->
-    <section id="certifications">
-        <span class="section-label">Certifications</span>
-        <div class="cert-grid fade-in delay-2">
-            <a href="https://drive.google.com/file/d/1snuXzwmGDSpv7w6oaRL_FMK4gYFsFlhd/view?pli=1" target="_blank"
-                class="cert-card">
-                <span class="cert-title">Digital Marketing</span>
-                <span class="cert-org">Google Digital Garage</span>
-            </a>
-            <a href="https://www.mygreatlearning.com/certificate/JUZAWPFK?referrer_code=GLNFWCTKTZS_E" target="_blank"
-                class="cert-card">
-                <span class="cert-title">Excel Expert</span>
-                <span class="cert-org">Great Learning</span>
-            </a>
-            <a href="https://www.mygreatlearning.com/certificate/ZQDNLFVK?referrer_code=GLNFWCTKTZS_E" target="_blank"
-                class="cert-card">
-                <span class="cert-title">UI/UX Design</span>
-                <span class="cert-org">Great Learning</span>
-            </a>
-        </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact">
-        <div class="story-content fade-in delay-2">
-
-            <div class="glass-card contact-card">
-                <h3>Let's Create Together</h3>
-                <p>I’m always open to a quiet conversation about code, books, or the future of creativity.</p>
-
-                <!-- Simple Email Link -->
-                <a href="mailto:info.arunkarki@gmail.com" class="email-display">
-                    <span class="email-text">info.arunkarki@gmail.com</span>
+        <!-- Certifications -->
+        <section id="certifications" class="fade-in">
+            <h2>Certifications</h2>
+            <div class="cert-grid">
+                <a href="https://drive.google.com/file/d/1snuXzwmGDSpv7w6oaRL_FMK4gYFsFlhd/view?pli=1" target="_blank"
+                    class="cert-card tilt-card">
+                    <span class="cert-title">Digital Marketing</span>
+                    <div>Google Digital Garage</div>
                 </a>
+                <a href="https://www.mygreatlearning.com/certificate/JUZAWPFK?referrer_code=GLNFWCTKTZS_E"
+                    target="_blank" class="cert-card tilt-card">
+                    <span class="cert-title">Excel Expert</span>
+                    <div>Great Learning</div>
+                </a>
+                <a href="https://www.mygreatlearning.com/certificate/ZQDNLFVK?referrer_code=GLNFWCTKTZS_E"
+                    target="_blank" class="cert-card tilt-card">
+                    <span class="cert-title">UI/UX Design</span>
+                    <div>Great Learning</div>
+                </a>
+            </div>
+        </section>
 
-                <div class="contact-divider"><span>OR FIND ME ON</span></div>
+        <!-- Contact Section -->
+        <section id="contact" class="fade-in">
+            <div class="contact-container">
+                <div class="contact-card-glass">
+                    <h2>Let's Connect</h2>
+                    <p>I’m always open to a quiet conversation about code, books, or the future.</p>
 
-                <div class="contact-links">
-                    <!-- Mail: Tanjiro (Green) -->
-                    <a href="mailto:info.arunkarki@gmail.com" class="icon-link icon-tanjiro" title="Send Email">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                            </path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                    </a>
-
-                    <!-- LinkedIn: Zenitsu (Yellow/Thunder) -->
-                    <a href="https://www.linkedin.com/in/arun-karki-02861a229/" target="_blank"
-                        class="icon-link icon-zenitsu" title="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                            </path>
-                            <rect x="2" y="9" width="4" height="12"></rect>
-                            <circle cx="4" cy="4" r="2"></circle>
-                        </svg>
-                    </a>
-
-                    <!-- Instagram: Nezuko (Pink/Demon) -->
-                    <a href="https://www.instagram.com/nura.ikrak/" target="_blank" class="icon-link icon-nezuko"
-                        title="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                        </svg>
-                    </a>
-
-                    <!-- Facebook: Inosuke (Blue/Beast) -->
-                    <a href="https://www.facebook.com/qo88xnzxio" target="_blank" class="icon-link icon-inosuke"
-                        title="Facebook">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                        </svg>
-                    </a>
+                    <!-- Simplified: No Text Email, Just Icons -->
+                    <div class="contact-links">
+                        <a href="mailto:info.arunkarki@gmail.com" class="icon-link" title="Email"><i
+                                class="ri-mail-send-line"></i></a>
+                        <!-- WhatsApp Added -->
+                        <a href="https://wa.me/9779861899728" target="_blank" class="icon-link" title="WhatsApp"><i
+                                class="ri-whatsapp-line"></i></a>
+                        <a href="https://www.linkedin.com/in/arun-karki-02861a229/" target="_blank" class="icon-link"
+                            title="LinkedIn"><i class="ri-linkedin-fill"></i></a>
+                        <a href="https://www.instagram.com/im_ak_1021/" target="_blank" class="icon-link"
+                            title="Instagram"><i class="ri-instagram-line"></i></a>
+                        <a href="https://www.facebook.com/qo88xnzxio" target="_blank" class="icon-link"
+                            title="Facebook"><i class="ri-facebook-fill"></i></a>
+                    </div>
                 </div>
             </div>
-
-        </div>
-    </section>
-
-    <div style="height: 100px;"></div> <!-- Spacer for footer nav -->
+        </section>
 
     </div>
 
-    <!-- Floating Pill Navigation -->
+    <!-- Floating Nav Dock (Centered) -->
     <div class="nav-pill-container">
         <nav class="nav-pill">
             <a href="#home" class="nav-item" data-label="Home">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
+                <i class="ri-home-4-line"></i>
             </a>
-
-            <a href="#work" class="nav-item" data-label="Work">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
+            <a href="#about" class="nav-item" data-label="About">
+                <i class="ri-user-smile-line"></i>
             </a>
-
-            <a href="#certifications" class="nav-item" data-label="Certifications">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="8" r="7"></circle>
-                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
-                </svg>
+            <a href="#experience" class="nav-item" data-label="Work & Path">
+                <i class="ri-briefcase-4-line"></i>
             </a>
-
-
-
+            <a href="#skills" class="nav-item" data-label="Skills">
+                <i class="ri-tools-line"></i>
+            </a>
+            <a href="#certifications" class="nav-item" data-label="Certs">
+                <i class="ri-award-line"></i>
+            </a>
             <a href="#contact" class="nav-item" data-label="Contact">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
+                <i class="ri-mail-send-line"></i>
             </a>
         </nav>
     </div>
+
+    <!-- Fixed Bottom Right CV Button -->
+    <a href="cv.html" target="_blank" class="fixed-cv-btn" title="Download CV">
+        <i class="ri-file-download-line"></i>
+        <span>CV</span>
+    </a>
+
+    <!-- Feed Fish Button (Bottom Left) -->
+    <button id="feed-btn" class="feed-btn" title="Feed the Fish">
+        <i class="ri-restaurant-line"></i>
+        <span>Feed the fish</span>
+    </button>
 
     <script src="script.js"></script>
 </body>
