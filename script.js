@@ -1,131 +1,130 @@
 /* 
-   Script: 3D Background & UX Interactions
-   Theme: Dimensional Flow
+   Script: The Immersive Engine
+   Tech: Three.js (WebGL), GSAP (Animation), Lenis (Smooth Scroll)
 */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initSmoothScroll();
     initThreeJS();
-    initScrollObserver();
+    initMagneticUI();
+    initAnimations();
 });
 
+/* ----------------------------------
+   1. Smooth Scroll (Lenis)
+---------------------------------- */
+function initSmoothScroll() {
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        direction: 'vertical',
+        smooth: true
+    });
+
+    function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+}
+
+/* ----------------------------------
+   2. 3D Background (Three.js)
+---------------------------------- */
 function initThreeJS() {
     const container = document.getElementById('canvas-container');
     if (!container) return;
 
-    // Scene Setup
+    // Scene
     const scene = new THREE.Scene();
-    // Light fog for depth
-    scene.fog = new THREE.FogExp2(0xf5f7fa, 0.002);
+    scene.fog = new THREE.FogExp2(0xF3F0EB, 0.0015); // Match Paper Background
 
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.z = 50;
+    // Camera
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+    camera.position.z = 100;
+    camera.position.y = 50;
 
+    // Renderer
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     container.appendChild(renderer.domElement);
 
-    // Particles (Creative Elements)
-    const particleCount = 150; // Slightly reduced count for complex shapes
+    // Particles (Wave System)
+    const particleCount = 700;
     const particles = new THREE.Group();
+    const geometry = new THREE.CircleGeometry(0.5, 5);
+    const material = new THREE.MeshBasicMaterial({ color: 0x121212 }); // Ink Dark
 
-    // Geometries - Varied shapes for "Creative/Tech" mix
-    const geometries = [
-        new THREE.TorusKnotGeometry(0.4, 0.15, 64, 8), // Complex
-        new THREE.OctahedronGeometry(0.6), // Sharp
-        new THREE.TetrahedronGeometry(0.5), // Simple
-        new THREE.IcosahedronGeometry(0.5, 0) // Classic
-    ];
+    const particleMesh = new THREE.InstancedMesh(geometry, material, particleCount);
+    const dummy = new THREE.Object3D();
 
-    // Theme Colors: Coral, Teal, Sunshine, plus Creative Purple & Deep Blue
-    const colors = [0xff6b6b, 0x4ecdc4, 0xffe66d, 0xa55eea, 0x45aaf2];
+    // Create Grid of Particles
+    const rows = 25;
+    const cols = 28;
+    const separation = 8;
 
-    for (let i = 0; i < particleCount; i++) {
-        const material = new THREE.MeshBasicMaterial({
-            color: colors[Math.floor(Math.random() * colors.length)],
-            transparent: true,
-            opacity: 0.7,
-            wireframe: Math.random() > 0.8 // 20% wireframe for "Tech" feel
-        });
+    // We will use standard meshes for ease of individual animation in this loop
+    // But for performance, InstancedMesh is better. Let's stick to Group of Meshes for wave Logic simplicity
+    // Converting to individual meshes for the sine wave effect
 
-        const geometry = geometries[Math.floor(Math.random() * geometries.length)];
-        const mesh = new THREE.Mesh(geometry, material);
+    const dots = [];
 
-        // Random spread
-        mesh.position.x = (Math.random() - 0.5) * 100;
-        mesh.position.y = (Math.random() - 0.5) * 100;
-        mesh.position.z = (Math.random() - 0.5) * 100;
+    for (let x = 0; x < cols; x++) {
+        for (let z = 0; z < rows; z++) {
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.position.x = (x * separation) - ((cols * separation) / 2);
+            mesh.position.z = (z * separation) - ((rows * separation) / 2);
+            mesh.position.y = 0;
 
-        // Random velocity & rotation
-        mesh.userData = {
-            velX: (Math.random() - 0.5) * 0.05,
-            velY: (Math.random() - 0.5) * 0.05,
-            velZ: (Math.random() - 0.5) * 0.05,
-            rotX: (Math.random() - 0.5) * 0.02,
-            rotY: (Math.random() - 0.5) * 0.02
-        };
-
-        particles.add(mesh);
+            scene.add(mesh);
+            dots.push({ mesh, x: x, z: z, initialY: 0 });
+        }
     }
-    scene.add(particles);
 
-    // Lines (Connections)
-    const lineMaterial = new THREE.LineBasicMaterial({
-        color: 0x2d3436,
-        transparent: true,
-        opacity: 0.15
-    });
-
-    // Mouse Interaction
+    // Interaction
     let mouseX = 0;
     let mouseY = 0;
-    let targetX = 0;
-    let targetY = 0;
+    let time = 0;
 
-    const windowHalfX = window.innerWidth / 2;
-    const windowHalfY = window.innerHeight / 2;
-
-    document.addEventListener('mousemove', (event) => {
-        mouseX = (event.clientX - windowHalfX) * 0.05;
-        mouseY = (event.clientY - windowHalfY) * 0.05;
+    document.addEventListener('mousemove', (e) => {
+        mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+        mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
     });
 
     // Animation Loop
     const animate = () => {
         requestAnimationFrame(animate);
+        time += 0.05;
 
-        targetX = mouseX * 0.5;
-        targetY = mouseY * 0.5;
+        // Wave Logic
+        dots.forEach(dot => {
+            // Distance from mouse influence
+            // Simple sine wave based on time + position
+            const waveY = Math.sin((dot.x * 0.5) + time) * 2 + Math.cos((dot.z * 0.3) + time) * 2;
 
-        // Rotate group slightly based on mouse
-        particles.rotation.y += 0.001 + (targetX - particles.rotation.y) * 0.0005;
-        particles.rotation.x += 0.001 + (targetY - particles.rotation.x) * 0.0005;
+            // Mouse Repulsion / Attraction
+            // We'll add a subtle tilt to the whole scene based on mouse
 
-        // Float particles
-        particles.children.forEach(p => {
-            p.position.x += p.userData.velX;
-            p.position.y += p.userData.velY;
-            p.position.z += p.userData.velZ;
+            dot.mesh.position.y = waveY;
 
-            // Individual rotation
-            p.rotation.x += p.userData.rotX;
-            p.rotation.y += p.userData.rotY;
-
-            // Boundary check (loop around)
-            if (p.position.x > 50) p.position.x = -50;
-            if (p.position.x < -50) p.position.x = 50;
-            if (p.position.y > 50) p.position.y = -50;
-            if (p.position.y < -50) p.position.y = 50;
-            if (p.position.z > 50) p.position.z = -50;
-            if (p.position.z < -50) p.position.z = 50;
+            // Scale based on sine
+            const scale = (Math.sin((dot.x * 0.5) + time) + 2) * 0.5;
+            dot.mesh.scale.set(scale, scale, scale);
         });
+
+        // Camera Sway
+        camera.position.x += (mouseX * 20 - camera.position.x) * 0.05;
+        camera.position.y += (50 + mouseY * 10 - camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
 
         renderer.render(scene, camera);
     };
 
     animate();
 
-    // Resize Handler
+    // Resize
     window.addEventListener('resize', () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
@@ -133,44 +132,84 @@ function initThreeJS() {
     });
 }
 
-function initScrollObserver() {
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-item');
+/* ----------------------------------
+   3. Magnetic UI (Dock)
+---------------------------------- */
+function initMagneticUI() {
+    const dockIcons = document.querySelectorAll('.dock-link');
 
-    // 1. Scroll Active Highlighter
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Remove active from all
-                navItems.forEach(item => item.classList.remove('active'));
+    dockIcons.forEach(icon => {
+        icon.addEventListener('mousemove', (e) => {
+            const rect = icon.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
 
-                // Add active to current
-                const id = entry.target.getAttribute('id');
-                const activeLink = document.querySelector(`.nav-item[href="#${id}"]`);
-                if (activeLink) {
-                    activeLink.classList.add('active');
-                }
-            }
+            // Magnetic Pull
+            gsap.to(icon, {
+                x: x * 0.5,
+                y: y * 0.5,
+                duration: 0.3,
+                ease: 'power2.out'
+            });
         });
-    }, { threshold: 0.6 });
 
-    sections.forEach(section => observer.observe(section));
-
-    // 2. Simple Entrance Animations
-    const fadeInElements = document.querySelectorAll('.fade-in');
-    const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+        icon.addEventListener('mouseleave', () => {
+            gsap.to(icon, {
+                x: 0,
+                y: 0,
+                duration: 0.5,
+                ease: 'elastic.out(1, 0.4)'
+            });
         });
-    }, { threshold: 0.1 });
+    });
+}
 
-    fadeInElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        fadeObserver.observe(el);
+/* ----------------------------------
+   4. Cinematic Reveals (GSAP)
+---------------------------------- */
+function initAnimations() {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Cover Page Reveal
+    const coverTitle = document.querySelector('.cover-title');
+    if (coverTitle) {
+        gsap.from(coverTitle.children, {
+            y: 100,
+            opacity: 0,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: 'power4.out',
+            delay: 0.2
+        });
+    }
+
+    // Gallery Items Reveal
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach((item, index) => {
+        gsap.from(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            delay: index * 0.1, // Stagger effect
+            ease: 'power2.out'
+        });
+    });
+
+    // Sticker Float Animation
+    const stickers = document.querySelectorAll('.sticker');
+    stickers.forEach(sticker => {
+        gsap.to(sticker, {
+            y: -20,
+            rotation: '+=5',
+            duration: 'random(3, 5)',
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
     });
 }
