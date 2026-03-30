@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Arun Karki</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <a href="index.html" class="nav-brand">AK</a>
+        <div class="nav-links">
+            <a href="about.html" data-tooltip="About"><i class="fa-solid fa-user-astronaut"></i></a>
+            <a href="skills.html" data-tooltip="Skills"><i class="fa-solid fa-bolt"></i></a>
+            <a href="experience.html" data-tooltip="Experience"><i class="fa-solid fa-briefcase"></i></a>
+            <a href="portfolio.html" class="active" data-tooltip="Portfolio"><i class="fa-solid fa-folder-open"></i></a>
+        </div>
+        <div class="nav-cta">
+            <a href="contact.html" class="btn-nav-icon" data-tooltip="Hire Me"><i
+                    class="fa-solid fa-comment-dots"></i></a>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h1 class="heading-clash" style="margin-bottom: 2rem; text-align: center;">Freelance Projects</h1>
+            <p style="text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 5rem auto;">
+                A showcase of digital transformation and creative solutions delivered for clients in Nepal and beyond.
+            </p>
+
+            <div class="skills-grid">
+                <!-- Mother's Castle School -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="mother.jpg" alt="Mother's Castle School">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="heading-clash">Mother's Castle</h3>
+                        <p style="font-size: 0.8rem; letter-spacing: 0.1em; color: var(--accent-amber); margin: 0.5rem 0 1rem 0;">DIGITAL MARKETING & GRAPHICS</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Executing high-impact social media campaigns and visual identity assets for modern educational engagement.</p>
+                        <a href="https://www.facebook.com/motherscastle111" target="_blank" rel="noopener noreferrer" class="btn-premium btn-secondary" style="padding: 0.8rem 1.5rem; font-size: 0.7rem;">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Tibetan Rugs & Carpets -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="tib.png" alt="Tibetan Rugs & Carpets">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="heading-clash">Tibetan Rugs</h3>
+                        <p style="font-size: 0.8rem; letter-spacing: 0.1em; color: var(--accent-amber); margin: 0.5rem 0 1rem 0;">WEBSITE DEVELOPMENT</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Bridging traditional craft with modern ecommerce, showcasing high-end Tibetan rugs through integrated UI/UX.</p>
+                        <a href="https://graceful-tiramisu-328c7e.netlify.app/" target="_blank" rel="noopener noreferrer" class="btn-premium btn-secondary" style="padding: 0.8rem 1.5rem; font-size: 0.7rem;">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Salvinia Academy -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="salvinia.jpg" alt="Salvinia Academy">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="heading-clash">Salvinia Academy</h3>
+                        <p style="font-size: 0.8rem; letter-spacing: 0.1em; color: var(--accent-amber); margin: 0.5rem 0 1rem 0;">WEBSITE DEVELOPMENT & BRANDING</p>
+                        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Streamlining digital educational platforms with intuitive web design and creative curriculum visuals.</p>
+                        <a href="https://www.salvinia.edu.np/" target="_blank" rel="noopener noreferrer" class="btn-premium btn-secondary" style="padding: 0.8rem 1.5rem; font-size: 0.7rem;">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="padding: 4rem var(--site-padding); background: var(--bg-card); border-top: 1px solid var(--border-subtle); text-align: center;">
+        <p style="font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted);">© 2026 Arun Karki | arunkarki1023.com.np</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

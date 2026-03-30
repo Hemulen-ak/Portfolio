@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun Karki </title>
+    <meta name="description"
+        content="Arun Karki - Graphic Designer, Web Developer, Digital Marketer, and Educator based in Kirtipur, Kathmandu.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="icon" type="image/jpeg" href="profile 1.jpg">
+</head>
+
+<body>
+
+    <nav id="navbar">
+        <a href="index.html" class="nav-brand">AK</a>
+        <div class="nav-links">
+            <a href="about.html" data-tooltip="About"><i class="fa-solid fa-user-astronaut"></i></a>
+            <a href="skills.html" data-tooltip="Skills"><i class="fa-solid fa-bolt"></i></a>
+            <a href="experience.html" data-tooltip="Experience"><i class="fa-solid fa-briefcase"></i></a>
+            <a href="portfolio.html" data-tooltip="Portfolio"><i class="fa-solid fa-folder-open"></i></a>
+        </div>
+        <div class="nav-cta">
+            <a href="contact.html" class="btn-nav-icon" data-tooltip="Hire Me"><i
+                    class="fa-solid fa-comment-dots"></i></a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="heading-clash">Arun Karki</h1>
+                <div class="typewriter-container">
+                    <span id="typewriter"></span><span class="cursor" style="color: var(--accent-amber);">|</span>
+                </div>
+                <p
+                    style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 3rem;">
+                    📍 Kirtipur, Kathmandu, Nepal 🇳🇵
+                </p>
+
+                <div class="hero-cta">
+                    <a href="portfolio.html" class="btn-premium btn-primary">View My Work</a>
+                    <a href="contact.html" class="btn-premium btn-secondary">Hire Me</a>
+                </div>
+            </div>
+
+            <div class="scroll-indicator-container">
+                <p class="scroll-text">Scroll to Explore</p>
+                <div class="mouse-indicator">
+                    <div class="mouse-wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT TEASER SECTION -->
+        <section class="container"
+            style="background: radial-gradient(circle at 90% 50%, rgba(232, 164, 48, 0.02) 0%, transparent 40%);">
+            <div class="grid-cols-2">
+                <div class="about-img-container">
+                    <img src="profile.jpg"
+                        style="width: 100%; height: auto; aspect-ratio: 4/5; object-fit: cover; border: 1px solid var(--border-subtle);"
+                        alt="Arun Karki">
+                </div>
+
+                <div class="about-content">
+                    <p
+                        style="color: var(--accent-amber); font-family: var(--font-heading); font-weight: 500; font-size: 0.8rem; margin-bottom: 1rem; letter-spacing: 0.2em;">
+                        THE CREATIVE FORCE</p>
+                    <h2 class="heading-clash" style="margin-bottom: 2rem;">Blending Design with Strategy</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-muted);">
+                        I specialize in creating digital experiences that are visually stunning and business-oriented.
+                        From Kirtipur to the world, I help brands bridge the gap between imagination and technical
+                        execution.
+                    </p>
+
+                    <div style="display: flex; flex-direction: column; gap: 2rem;">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <h2 class="heading-clash" data-target="7">7+</h2>
+                                <p style="font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase;">Years
+                                    Exp</p>
+                            </div>
+                            <div class="stat-item">
+                                <h2 class="heading-clash" data-target="3">3+</h2>
+                                <p style="font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Projects</p>
+                            </div>
+                            <div class="stat-item">
+                                <h2 class="heading-clash" data-target="5">5+</h2>
+                                <p style="font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase;">
+                                    Industries</p>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center;">
+                            <a href="about.html" class="btn-premium btn-secondary" style="display: inline-block;">Learn
+                                More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS HIGHLIGHT SECTION -->
+        <section class="container" style="text-align: center;">
+            <p
+                style="color: var(--accent-amber); font-family: var(--font-heading); font-weight: 500; font-size: 0.8rem; margin-bottom: 1rem; letter-spacing: 0.2em;">
+                CORE CAPABILITIES</p>
+            <h2 class="heading-clash" style="margin-bottom: 5rem;">What I Bring to the Table</h2>
+
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <i class="fas fa-palette"
+                        style="font-size: 2rem; color: var(--accent-amber); margin-bottom: 1.5rem;"></i>
+                    <h3 class="heading-clash">Graphic Design</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Branding, Canva, & Social
+                        Media Strategy.</p>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-code"
+                        style="font-size: 2rem; color: var(--accent-amber); margin-bottom: 1.5rem;"></i>
+                    <h3 class="heading-clash">Web Dev</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Modern, clean, and
+                        responsive UI/UX.</p>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-bullhorn"
+                        style="font-size: 2rem; color: var(--accent-amber); margin-bottom: 1.5rem;"></i>
+                    <h3 class="heading-clash">Digital Marketing</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Full-funnel strategies
+                        and SEO.</p>
+                </div>
+                <div class="skill-category">
+                    <i class="fas fa-headset"
+                        style="font-size: 2rem; color: var(--accent-amber); margin-bottom: 1.5rem;"></i>
+                    <h3 class="heading-clash">Support</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 10px;">Managing customer
+                        experience and operations.</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 5rem;">
+                <a href="skills.html" class="btn-premium btn-secondary">See Full Toolkit</a>
+            </div>
+        </section>
+
+        <!-- FEATURED PROJECTS SECTION -->
+        <section class="container"
+            style="background: var(--bg-card); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 5rem; flex-wrap: wrap; gap: 2rem;">
+                <div>
+                    <p
+                        style="color: var(--accent-amber); font-family: var(--font-heading); font-weight: 500; font-size: 0.8rem; margin-bottom: 1rem; letter-spacing: 0.2em;">
+                        RECENT WORK</p>
+                    <h2 class="heading-clash">Featured Projects</h2>
+                </div>
+                <a href="portfolio.html" class="btn-premium btn-primary">Visit Portfolio</a>
+            </div>
+
+            <div class="skills-grid">
+                <div class="project-card">
+                    <div class="project-img-wrapper" style="height: 250px;">
+                        <img src="tib.png" alt="Tibetan Rugs">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="heading-clash">Tibetan Rugs</h3>
+                        <p style="font-size: 0.7rem; color: var(--accent-amber); margin-bottom: 1rem;">ECOMMERCE & WEB
+                            DEV</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrapper" style="height: 250px;">
+                        <img src="mother.jpg" alt="Mother's Castle">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="heading-clash">Mother's Castle</h3>
+                        <p style="font-size: 0.7rem; color: var(--accent-amber); margin-bottom: 1rem;">MARKETING &
+                            GRAPHICS</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-wrapper" style="height: 250px;">
+                        <img src="salvinia.jpg" alt="Salvinia Academy">
+                    </div>
+                    <div class="project-overlay">
+                        <h3 class="heading-clash">Salvinia Academy</h3>
+                        <p style="font-size: 0.7rem; color: var(--accent-amber); margin-bottom: 1rem;">BRANDING & WEB
+                            DEV</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE GLIMPSE SECTION -->
+        <section class="container" style="text-align: center;">
+            <p
+                style="color: var(--accent-amber); font-family: var(--font-heading); font-weight: 500; font-size: 0.8rem; margin-bottom: 1rem; letter-spacing: 0.2em;">
+                PROFESSIONAL JOURNEY</p>
+            <h2 class="heading-clash" style="margin-bottom: 4rem;">Years of Dedication</h2>
+
+            <div
+                style="max-width: 800px; margin: 0 auto; background: var(--bg-card); padding: clamp(1.5rem, 5vw, 3rem); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 1rem; text-align: left;">
+                <span
+                    style="color: var(--accent-amber); font-family: var(--font-heading); font-weight: 700; font-size: 0.7rem;">CURRENT
+                    ROLE</span>
+                <h3 class="heading-clash">Freelance Creative</h3>
+                <p style="color: var(--text-muted);">IMAK • 2026 - Present</p>
+                <p
+                    style="font-size: 0.9rem; border-top: 1px solid var(--border-subtle); padding-top: 1.5rem; margin-top: 1.5rem;">
+                    Delivering end-to-end digital solutions including graphic design, web development, and digital
+                    marketing strategy for diverse clients.</p>
+                <div style="margin-top: 2rem;">
+                    <a href="experience.html"
+                        style="color: var(--accent-amber); text-decoration: none; font-family: var(--font-heading); font-size: 0.8rem; letter-spacing: 0.1em; border-bottom: 1px solid var(--accent-amber);">VIEW
+                        FULL TIMELINE</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION -->
+        <section class="container" style="padding-bottom: 10rem;">
+            <div
+                style="background: radial-gradient(circle at center, var(--accent-gold-glow) 0%, transparent 70%); padding: clamp(2rem, 10vw, 6rem); border: 1px solid var(--accent-amber); text-align: center; position: relative; overflow: hidden;">
+                <h2 class="heading-clash" style="margin-bottom: 3rem;">Let's Build Your Vision Together.</h2>
+                <a href="contact.html" class="btn-premium btn-primary">Start a Conversation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="padding: 4rem var(--site-padding); background: var(--bg-card); border-top: 1px solid var(--border-subtle); text-align: center;">
+        <p style="font-size: 0.8rem; letter-spacing: 0.1em; color: var(--text-muted);">© 2026 Arun Karki |
+            arunkarki1023.com.np</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
