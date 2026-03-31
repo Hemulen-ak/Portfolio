@@ -119,29 +119,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     */
 
-    // 8. Contact Form Success Simulation
+    // 8. Contact Form Submission
     const form = document.getElementById('contact-form');
-    // ... rest of the form logic
     if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = form.querySelector('button');
             const originalContent = btn.innerHTML;
             btn.innerHTML = 'Sending...';
             btn.disabled = true;
 
-            setTimeout(() => {
-                btn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
-                btn.style.background = '#28a745';
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    btn.innerHTML = 'Message Sent! <i class="fas fa-check"></i>';
+                    btn.style.background = '#28a745';
+                    btn.style.color = '#fff';
+                    setTimeout(() => {
+                        form.reset();
+                        btn.innerHTML = originalContent;
+                        btn.disabled = false;
+                        btn.style.background = '';
+                        btn.style.color = '';
+                    }, 3000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                btn.innerHTML = 'Error Sending <i class="fas fa-times"></i>';
+                btn.style.background = '#dc3545';
                 btn.style.color = '#fff';
                 setTimeout(() => {
-                    form.reset();
                     btn.innerHTML = originalContent;
                     btn.disabled = false;
-                    btn.style.background = 'var(--accent-amber)';
-                    btn.style.color = 'var(--bg-charcoal)';
+                    btn.style.background = '';
+                    btn.style.color = '';
                 }, 3000);
-            }, 1500);
+            }
         });
     }
 });
