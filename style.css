@@ -683,3 +683,10 @@ section.container:first-of-type {
 @media screen and (max-width: 480px) {
     h1 { font-size: 1.5rem !important; }
 }
+
+/* Studio Breakpoint */
+@media screen and (max-width: 900px) {
+    .studio-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
