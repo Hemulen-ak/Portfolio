@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Arun Karki</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: #1a1a2e;
+            background: #f5f5f5;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+        .page {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            padding: 3rem 2.5rem 2rem 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.3rem;
+        }
+        .header .title {
+            font-size: 1rem;
+            color: #f5a623;
+            font-weight: 500;
+        }
+        .header .contact {
+            text-align: right;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            color: #ccc;
+        }
+        .header .contact a {
+            color: #f5a623;
+            text-decoration: none;
+        }
+        .body-content {
+            padding: 2.5rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+        }
+        .sidebar h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #f5a623;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #f5a623;
+        }
+        .sidebar .section {
+            margin-bottom: 2rem;
+        }
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+        .skill-tag {
+            background: #f0f0f0;
+            padding: 0.25rem 0.6rem;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            color: #333;
+        }
+        .main-content h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #f5a623;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #f5a623;
+        }
+        .main-content .section {
+            margin-bottom: 1.75rem;
+        }
+        .exp-item {
+            margin-bottom: 1.25rem;
+        }
+        .exp-item:last-child { margin-bottom: 0; }
+        .exp-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .exp-item .meta {
+            font-size: 0.8rem;
+            color: #666;
+            margin: 0.15rem 0 0.4rem 0;
+        }
+        .exp-item .meta .company { color: #1a1a2e; font-weight: 500; }
+        .exp-item p {
+            font-size: 0.85rem;
+            color: #444;
+        }
+        .edu-item {
+            margin-bottom: 1rem;
+        }
+        .edu-item h4 { font-size: 1rem; }
+        .edu-item .meta { font-size: 0.8rem; color: #666; }
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .lang-item:last-child { border-bottom: none; }
+        .lang-item .level { color: #666; font-size: 0.75rem; }
+        .print-btn {
+            display: block;
+            width: fit-content;
+            margin: 1.5rem auto;
+            padding: 0.8rem 2rem;
+            background: #1a1a2e;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .print-btn:hover { background: #f5a623; }
+        @media print {
+            body { padding: 0; background: #fff; }
+            .page { box-shadow: none; max-width: 100%; }
+            .print-btn { display: none; }
+            .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .skill-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+        @media screen and (max-width: 700px) {
+            body { padding: 1rem; }
+            .header { padding: 2rem 1.5rem; flex-direction: column; }
+            .header .contact { text-align: left; }
+            .body-content { grid-template-columns: 1fr; padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()"><i class="fas fa-download"></i> Download PDF / Print</button>
+    <div class="page">
+        <div class="header">
+            <div>
+                <h1>Arun Karki</h1>
+                <div class="title">Graphic Designer &middot; Web Developer &middot; Digital Marketer</div>
+            </div>
+            <div class="contact">
+                Kirtipur, Kathmandu, Nepal<br>
+                <a href="tel:+9779861899728">+977 9861899728</a><br>
+                <a href="mailto:info.arunkarki@gmail.com">info.arunkarki@gmail.com</a><br>
+                <a href="mailto:aronkarkee@gmail.com">aronkarkee@gmail.com</a><br>
+                <a href="https://wa.me/9779861899728" target="_blank">WhatsApp</a> &middot;
+                <a href="https://arunkarki1023.com.np">arunkarki1023.com.np</a>
+            </div>
+        </div>
+
+        <div class="body-content">
+            <div class="sidebar">
+                <div class="section">
+                    <h3>Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Graphic Design</span>
+                        <span class="skill-tag">Web Development</span>
+                        <span class="skill-tag">Digital Marketing</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">Branding</span>
+                        <span class="skill-tag">SEO</span>
+                        <span class="skill-tag">Social Media Strategy</span>
+                        <span class="skill-tag">Customer Support</span>
+                        <span class="skill-tag">Team Leadership</span>
+                        <span class="skill-tag">LMS / HRM Platforms</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Languages</h3>
+                    <div class="lang-item">
+                        <span>Nepali</span>
+                        <span class="level">Native</span>
+                    </div>
+                    <div class="lang-item">
+                        <span>English</span>
+                        <span class="level">Professional</span>
+                    </div>
+                    <div class="lang-item">
+                        <span>Hindi</span>
+                        <span class="level">Professional</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3>Interests</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Motorcycling</span>
+                        <span class="skill-tag">Football</span>
+                        <span class="skill-tag">Esports</span>
+                        <span class="skill-tag">Photography</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="section">
+                    <h3>Professional Experience</h3>
+                    <div class="exp-item">
+                        <h4>Freelance Creative</h4>
+                        <div class="meta"><span class="company">IMAK</span> &middot; JAN 2026 &ndash; Present</div>
+                        <p>Delivering end-to-end digital solutions including graphic design, web development, and digital marketing strategy for diverse clients.</p>
+                    </div>
+                    <div class="exp-item">
+                        <h4>Team Lead</h4>
+                        <div class="meta"><span class="company">Sarvasys</span> &middot; MAY 2026 &ndash; JUL 2026</div>
+                        <p>Led the team towards customer success, built and managed LMS &amp; HRM platforms, and oversaw all tech-related operations while handling the call center team.</p>
+                    </div>
+                    <div class="exp-item">
+                        <h4>Computer Teacher</h4>
+                        <div class="meta"><span class="company">Kirti Secondary Boarding School</span> &middot; JAN 2024 &ndash; JAN 2026</div>
+                        <p>Mentored secondary level students in computer science, digital literacy, and creative tools.</p>
+                    </div>
+                    <div class="exp-item">
+                        <h4>Call Center Supervisor</h4>
+                        <div class="meta"><span class="company">N-Cash Digital Wallet</span> &middot; AUG 2023 &ndash; OCT 2023</div>
+                        <p>Supervised customer support operations and team performance for the digital payment platform.</p>
+                    </div>
+                    <div class="exp-item">
+                        <h4>Call Center Supervisor</h4>
+                        <div class="meta"><span class="company">VoxCrow</span> &middot; JAN 2023 &ndash; AUG 2023</div>
+                        <p>Led customer experience teams and optimized communication workflows.</p>
+                    </div>
+                    <div class="exp-item">
+                        <h4>Performance Assurance Officer</h4>
+                        <div class="meta"><span class="company">Fonepay</span> &middot; OCT 2021 &ndash; JUN 2022</div>
+                        <p>Focused on quality assurance and service excellence for Nepal's largest payment network.</p>
+                    </div>
+                    <div class="exp-item">
+                        <h4>Customer Support Executive</h4>
+                        <div class="meta"><span class="company">Kantipur Jobs</span> &middot; JAN 2019 &ndash; SEP 2021</div>
+                        <p>Managing diverse recruitment and customer support operations as part of my initial professional foundation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
